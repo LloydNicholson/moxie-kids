@@ -1,0 +1,20 @@
+2019-11-16T07:44:22+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function add_action(), 1 passed in /home/du978g1l7yp8/public_html/wp-content/themes/moxiekids-storefront-child/footer.php on line 35 and at least 2 expected in /home/du978g1l7yp8/public_html/wp-includes/plugin.php:403
+Stack trace:
+#0 /home/du978g1l7yp8/public_html/wp-content/themes/moxiekids-storefront-child/footer.php(35): add_action('storefront-foot...')
+#1 /home/du978g1l7yp8/public_html/wp-includes/template.php(722): require_once('/home/du978g1l7...')
+#2 /home/du978g1l7yp8/public_html/wp-includes/template.php(671): load_template('/home/du978g1l7...', true)
+#3 /home/du978g1l7yp8/public_html/wp-includes/general-template.php(76): locate_template(Array, true)
+#4 /home/du978g1l7yp8/public_html/wp-content/plugins/woocommerce/templates/archive-product.php(105): get_footer('shop')
+#5 /home/du978g1l7yp8/public_html/wp-includes/template-loader.php(98): include('/home/du978g1l7...')
+#6 /home/du978g1l7yp8/public_html/wp-blog-header.php(19): require_once('/home/du978g1l in /home/du978g1l7yp8/public_html/wp-includes/plugin.php on line 403
+
+2019-11-16T07:44:26+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function add_action(), 1 passed in /home/du978g1l7yp8/public_html/wp-content/themes/moxiekids-storefront-child/footer.php on line 35 and at least 2 expected in /home/du978g1l7yp8/public_html/wp-includes/plugin.php:403
+Stack trace:
+#0 /home/du978g1l7yp8/public_html/wp-content/themes/moxiekids-storefront-child/footer.php(35): add_action('storefront-foot...')
+#1 /home/du978g1l7yp8/public_html/wp-includes/template.php(722): require_once('/home/du978g1l7...')
+#2 /home/du978g1l7yp8/public_html/wp-includes/template.php(671): load_template('/home/du978g1l7...', true)
+#3 /home/du978g1l7yp8/public_html/wp-includes/general-template.php(76): locate_template(Array, true)
+#4 /home/du978g1l7yp8/public_html/wp-content/plugins/woocommerce/templates/archive-product.php(105): get_footer('shop')
+#5 /home/du978g1l7yp8/public_html/wp-includes/template-loader.php(98): include('/home/du978g1l7...')
+#6 /home/du978g1l7yp8/public_html/wp-blog-header.php(19): require_once('/home/du978g1l in /home/du978g1l7yp8/public_html/wp-includes/plugin.php on line 403
+

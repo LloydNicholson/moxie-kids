@@ -3,8 +3,6 @@
  * REST API Reports products controller
  *
  * Handles requests to the /reports/products endpoint.
- *
- * @package WooCommerce Admin/API
  */
 
 namespace Automattic\WooCommerce\Admin\API\Reports\Variations;
@@ -17,7 +15,6 @@ use \Automattic\WooCommerce\Admin\API\Reports\ExportableTraits;
 /**
  * REST API Reports products controller class.
  *
- * @package WooCommerce/API
  * @extends WC_REST_Reports_Controller
  */
 class Controller extends \WC_REST_Reports_Controller implements ExportableInterface {
@@ -185,7 +182,7 @@ class Controller extends \WC_REST_Reports_Controller implements ExportableInterf
 					'type'        => 'number',
 					'readonly'    => true,
 					'context'     => array( 'view', 'edit' ),
-					'description' => __( 'Total net revenue of all items sold.', 'woocommerce-admin' ),
+					'description' => __( 'Total Net Sales of all items sold.', 'woocommerce-admin' ),
 				),
 				'orders_count'  => array(
 					'type'        => 'integer',

@@ -285,7 +285,7 @@ msgstr "Dieses Thema lädt Formatvorlagen nach der wp_styles-Warteschlange."
 
 #: includes/classes/UI.php:305
 msgid ""
-"<p>This makes it difficult for plugins to override these css. You can try "
+"<p>This makes it difficult for plugins to override these styles. You can try "
 "to resolve this using the  \"Repair header template\" option (Step 6, "
 "\"Additional handling options\", below).</p>"
 msgstr ""
@@ -319,7 +319,7 @@ msgstr "Dieses Kindthema lädt keine Konfigurator-Formatvorlage."
 
 #: includes/classes/UI.php:309
 msgid ""
-"<p>If you want to customize css using this plugin, please click "
+"<p>If you want to customize styles using this plugin, please click "
 "\"Configure Child Theme\" again to add this to the settings.</p>"
 msgstr ""
 "<p>Wenn Sie Ihre Stile mit diesem Plugin anpassen möchten, klicken Sie bitte "
@@ -392,8 +392,8 @@ msgstr ""
 
 #: includes/classes/UI.php:319
 msgid ""
-"<p>Consider saving new custom css to a \"Separate stylesheet\" (see step "
-"5, below) so that you can customize these css.</p>"
+"<p>Consider saving new custom styles to a \"Separate stylesheet\" (see step "
+"5, below) so that you can customize these styles.</p>"
 msgstr ""
 "<p>Ziehen Sie in Betracht, neue angepasste Stile als \"Separate Formatvorlage"
 "\" zu speichern (siehe Schritt 5, unten), so dass Sie diese Stile anpassen "
@@ -621,7 +621,7 @@ msgstr "Plugin-Formatvorlagen anpassen"
 
 #: includes/forms/addl_panels.php:26
 msgid ""
-"Apply the power of CTC's top-rated interface to your site's plugin css. "
+"Apply the power of CTC's top-rated interface to your site's plugin styles. "
 "All new design makes it much easier to get the results you want."
 msgstr ""
 "Benutze die Macht der ausgezeichnet bewerteten Schnittstelle von CTC für "
@@ -649,7 +649,7 @@ msgstr ""
 "Suchen für Hex-Codes und RGB-Werte."
 
 #: includes/forms/addl_panels.php:29
-msgid "Find related css"
+msgid "Find related styles"
 msgstr "Finde ähnliche Stile"
 
 #: includes/forms/addl_panels.php:29
@@ -661,7 +661,7 @@ msgstr ""
 "einer einzigen kombinierten Liste zu bearbeiten."
 
 #: includes/forms/addl_panels.php:30
-msgid "Find css by Nav Menu"
+msgid "Find styles by Nav Menu"
 msgstr "Finde Stile mittels Nav-Menü"
 
 #: includes/forms/addl_panels.php:30
@@ -938,7 +938,7 @@ msgstr ""
 
 #: includes/forms/notices.php:68
 msgid ""
-"<strong>However, some css could not be parsed due to memory limits.</"
+"<strong>However, some styles could not be parsed due to memory limits.</"
 "strong> Try deselecting \"Additional Stylesheets\" below and click "
 "\"Generate/Rebuild Child Theme Files\". %sWhy am I seeing this?%s"
 msgstr ""
@@ -1130,7 +1130,7 @@ msgstr ""
 "nicht ändern)."
 
 #: includes/forms/parent-child.php:185
-msgid "Select where to save new css:"
+msgid "Select where to save new styles:"
 msgstr "Auswählen, wo neue Stile gespeichert werden:"
 
 #: includes/forms/parent-child.php:194
@@ -1139,7 +1139,7 @@ msgstr "Primäre Formatvorlage (style.css)"
 
 #: includes/forms/parent-child.php:197
 msgid ""
-"Save new custom css directly to the Child Theme primary stylesheet, "
+"Save new custom styles directly to the Child Theme primary stylesheet, "
 "replacing the existing values. The primary stylesheet will load in the order "
 "set by the theme."
 msgstr ""
@@ -1153,9 +1153,9 @@ msgstr "Separate Formatvorlage"
 
 #: includes/forms/parent-child.php:212
 msgid ""
-"Save new custom css to a separate stylesheet and combine any existing "
-"child theme css with the parent to form baseline. Select this option if "
-"you want to preserve the existing child theme css instead of overwriting "
+"Save new custom styles to a separate stylesheet and combine any existing "
+"child theme styles with the parent to form baseline. Select this option if "
+"you want to preserve the existing child theme styles instead of overwriting "
 "them. This option also allows you to customize stylesheets that load after "
 "the primary stylesheet."
 msgstr ""
@@ -1222,7 +1222,7 @@ msgstr "Elternthema-Vorlagen ignorieren."
 
 #: includes/forms/parent-child.php:278
 msgid ""
-"Do not load or parse the parent theme css. Only use this option if the "
+"Do not load or parse the parent theme styles. Only use this option if the "
 "Child Theme uses a Framework like Genesis and only uses child theme "
 "stylesheets for its appearance."
 msgstr ""
@@ -1423,7 +1423,7 @@ msgstr ""
 
 #: includes/forms/query-selector.php:92
 msgid ""
-"Values entered here are merged into existing child css or added to the "
+"Values entered here are merged into existing child styles or added to the "
 "child stylesheet if they do not exist in the parent."
 msgstr ""
 "Hier eingegebene Werte werden in bestehende Kind-Stile eingefügt oder "
@@ -1576,7 +1576,7 @@ msgstr "http://www.childthemeconfigurator.com"
 #. Description of the plugin/theme
 msgid ""
 "When using the Customizer is not enough - Create child themes and customize "
-"css, templates, functions and more."
+"styles, templates, functions and more."
 msgstr ""
 "Wenn der Customizer nicht genug sein sollte - Erzeugen Sie Kindthemen und "
 "passen Sie Stile, Vorlagen, Funktionen und mehr an."

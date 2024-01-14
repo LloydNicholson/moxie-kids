@@ -1,0 +1,2 @@
+2024-01-12T07:38:52+00:00 CRITICAL Cannot redeclare filter_created_pages() (previously declared in /home/du978g1l7yp8/public_html/wp-content/plugins/woocommerce/includes/wc-update-functions.php:2287) in /home/du978g1l7yp8/public_html/wp-content/plugins/woocommerce/includes/wc-update-functions.php on line 2287
+

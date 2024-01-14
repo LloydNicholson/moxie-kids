@@ -152,8 +152,8 @@ msgid "<p>The Configurator selected \"Do not add any parent stylesheet handling\
 msgstr "<p>Le configurateur a sélectionné « Ne pas ajouter de gestion de la feuille de style parent » pour l’option « Gestion de la feuille de style parent » (voir l’étape 6 ci-dessous).</p>"
 
 #. Description of the plugin/theme
-msgid "When using the Customizer is not enough - Create child themes and customize css, templates, functions and more."
-msgstr "Lorsque l’outil de personnalisation ne suffit pas - créez des thèmes enfants et personnalisez les css, les modèles, les fonctions et plus encore."
+msgid "When using the Customizer is not enough - Create child themes and customize styles, templates, functions and more."
+msgstr "Lorsque l’outil de personnalisation ne suffit pas - créez des thèmes enfants et personnalisez les styles, les modèles, les fonctions et plus encore."
 
 #: includes/forms/tabs.php:29
 msgid "Child Styles"
@@ -177,7 +177,7 @@ msgstr "@media Query"
 
 #: includes/forms/parent-child.php:468
 msgid "Configure Plugin Styles"
-msgstr "Configurer les css d’extension"
+msgstr "Configurer les styles d’extension"
 
 #: includes/forms/parent-child.php:443
 msgid "Select the plugin stylesheets you wish to customize below."
@@ -220,8 +220,8 @@ msgid "Repair the header template in the child theme."
 msgstr "Réparez le modèle d’en-tête du thème enfant."
 
 #: includes/forms/parent-child.php:275
-msgid "Do not load or parse the parent theme css. Only use this option if the Child Theme uses a Framework like Genesis and only uses child theme stylesheets for its appearance."
-msgstr "Ne chargez pas et n’analysez pas les css du thème parent. Utilisez uniquement cette option si le thème enfant utilise un framework comme Genesis et n’utilise que des feuilles de style du thème enfant pour son apparence."
+msgid "Do not load or parse the parent theme styles. Only use this option if the Child Theme uses a Framework like Genesis and only uses child theme stylesheets for its appearance."
+msgstr "Ne chargez pas et n’analysez pas les styles du thème parent. Utilisez uniquement cette option si le thème enfant utilise un framework comme Genesis et n’utilise que des feuilles de style du thème enfant pour son apparence."
 
 #: includes/forms/parent-child.php:274
 msgid "Ignore parent theme stylesheets."
@@ -256,24 +256,24 @@ msgid "Select Parent Theme stylesheet handling:"
 msgstr "Sélectionnez la gestion de la feuille de style du thème principal :"
 
 #: includes/forms/parent-child.php:209
-msgid "Save new custom css to a separate stylesheet and combine any existing child theme css with the parent to form baseline. Select this option if you want to preserve the existing child theme css instead of overwriting them. This option also allows you to customize stylesheets that load after the primary stylesheet."
-msgstr "Enregistrez de nouveaux css personnalisés dans une feuille de style distincte et combinez tous les css du thème enfant existants avec le parent pour former une base de référence. Sélectionnez cette option si vous souhaitez préserver les css du thème enfant existants au lieu de les écraser. Cette option vous permet également de personnaliser les feuilles de style qui se chargent après la feuille de style primaire."
+msgid "Save new custom styles to a separate stylesheet and combine any existing child theme styles with the parent to form baseline. Select this option if you want to preserve the existing child theme styles instead of overwriting them. This option also allows you to customize stylesheets that load after the primary stylesheet."
+msgstr "Enregistrez de nouveaux styles personnalisés dans une feuille de style distincte et combinez tous les styles du thème enfant existants avec le parent pour former une base de référence. Sélectionnez cette option si vous souhaitez préserver les styles du thème enfant existants au lieu de les écraser. Cette option vous permet également de personnaliser les feuilles de style qui se chargent après la feuille de style primaire."
 
 #: includes/forms/parent-child.php:206
 msgid "Separate Stylesheet"
 msgstr "Feuille de style séparée"
 
 #: includes/forms/parent-child.php:194
-msgid "Save new custom css directly to the Child Theme primary stylesheet, replacing the existing values. The primary stylesheet will load in the order set by the theme."
-msgstr "Enregistrez de nouveaux css personnalisés directement dans la feuille de style primaire du thème enfant, en remplaçant les valeurs existantes. La feuille de style principale sera chargée dans l’ordre défini par le thème."
+msgid "Save new custom styles directly to the Child Theme primary stylesheet, replacing the existing values. The primary stylesheet will load in the order set by the theme."
+msgstr "Enregistrez de nouveaux styles personnalisés directement dans la feuille de style primaire du thème enfant, en remplaçant les valeurs existantes. La feuille de style principale sera chargée dans l’ordre défini par le thème."
 
 #: includes/forms/parent-child.php:191
 msgid "Primary Stylesheet (style.css)"
 msgstr "Feuille de style primaire (style.css)"
 
 #: includes/forms/parent-child.php:182
-msgid "Select where to save new css:"
-msgstr "Sélectionnez l’endroit où enregistrer les nouveaux css :"
+msgid "Select where to save new styles:"
+msgstr "Sélectionnez l’endroit où enregistrer les nouveaux styles :"
 
 #: includes/forms/parent-child.php:217
 msgid "Click to expand"
@@ -416,8 +416,8 @@ msgid "The parent theme's <code>style.css</code> file is being loaded automatica
 msgstr "Le fichier <code>style.css</code> du thème parent est chargé automatiquement."
 
 #: includes/classes/UI.php:336
-msgid "<p>Consider saving new custom css to a \"Separate stylesheet\" (see step 5, below) so that you can customize these css.</p>"
-msgstr "<p>Envisagez de sauvegarder de nouveaux css personnalisés dans une « Feuille de style séparée » (voir l’étape 5 ci-dessous) afin que vous puissiez personnaliser ces css.</p>"
+msgid "<p>Consider saving new custom styles to a \"Separate stylesheet\" (see step 5, below) so that you can customize these styles.</p>"
+msgstr "<p>Envisagez de sauvegarder de nouveaux styles personnalisés dans une « Feuille de style séparée » (voir l’étape 5 ci-dessous) afin que vous puissiez personnaliser ces styles.</p>"
 
 #: includes/classes/UI.php:335
 msgid "This theme loads additional stylesheets after the <code>style.css</code> file:"
@@ -456,8 +456,8 @@ msgid "This child theme uses the parent stylesheet but does not load the parent 
 msgstr "Ce thème enfant utilise la feuille de style parent mais ne charge pas le fichier <code>style.css</code> du thème parent."
 
 #: includes/classes/UI.php:326
-msgid "<p>If you want to customize css using this plugin, please click \"Configure Child Theme\" again to add this to the settings.</p>"
-msgstr "<p>Si vous souhaitez personnaliser les css à l’aide de ce plugin, cliquez à nouveau sur « Configurer thème enfant » pour ajouter ceci aux paramètres.</p>"
+msgid "<p>If you want to customize styles using this plugin, please click \"Configure Child Theme\" again to add this to the settings.</p>"
+msgstr "<p>Si vous souhaitez personnaliser les styles à l’aide de ce plugin, cliquez à nouveau sur « Configurer thème enfant » pour ajouter ceci aux paramètres.</p>"
 
 #: includes/classes/UI.php:325
 msgid "This child theme does not load a Configurator stylesheet."
@@ -472,8 +472,8 @@ msgid "This theme loads the parent theme's <code>style.css</code> file outside t
 msgstr "Ce thème charge le fichier <code>style.css</code> du thème parent à l’extérieur de la file d’attente wp_styles."
 
 #: includes/classes/UI.php:322
-msgid "<p>This makes it difficult for plugins to override these css. You can try to resolve this using the  \"Repair header template\" option (Step 6, \"Additional handling options\", below).</p>"
-msgstr "<p>Cela rend difficile pour les plugins de passer outre ces css.  Vous pouvez essayer de résoudre ce problème en utilisant l’option « Réparer l’en-tête d'en-tête » (Étape 6, « Options de manipulation supplémentaires » ci-dessous).</p>"
+msgid "<p>This makes it difficult for plugins to override these styles. You can try to resolve this using the  \"Repair header template\" option (Step 6, \"Additional handling options\", below).</p>"
+msgstr "<p>Cela rend difficile pour les plugins de passer outre ces styles.  Vous pouvez essayer de résoudre ce problème en utilisant l’option « Réparer l’en-tête d'en-tête » (Étape 6, « Options de manipulation supplémentaires » ci-dessous).</p>"
 
 #: includes/classes/UI.php:321
 msgid "This theme loads stylesheets after the wp_styles queue."
@@ -541,7 +541,7 @@ msgstr "Utilisez <code>@import url ([chemin d'accès]);</code> pour lier des feu
 
 #: includes/forms/webfonts.php:18
 msgid "Linked Stylesheets"
-msgstr "Feuilles de css liés"
+msgstr "Feuilles de styles liés"
 
 #: includes/forms/themepreview.php:21
 msgid "Not Network Enabled"
@@ -604,8 +604,8 @@ msgid "New user?"
 msgstr "Nouvel utilisateur ?"
 
 #: includes/forms/query-selector.php:92
-msgid "Values entered here are merged into existing child css or added to the child stylesheet if they do not exist in the parent."
-msgstr "Les valeurs entrées ici sont fusionnées dans des css enfants existants ou ajoutées à la feuille de style enfant si elles n’existent pas dans le parent."
+msgid "Values entered here are merged into existing child styles or added to the child stylesheet if they do not exist in the parent."
+msgstr "Les valeurs entrées ici sont fusionnées dans des styles enfants existants ou ajoutées à la feuille de style enfant si elles n’existent pas dans le parent."
 
 #: includes/forms/query-selector.php:92
 msgid "Use to enter shorthand CSS or new @media queries and selectors."
@@ -836,16 +836,16 @@ msgid "Tweak menus quickly and easily."
 msgstr "Améliorer les menus rapidement et facilement."
 
 #: includes/forms/addl_panels.php:30
-msgid "Find css by Nav Menu"
-msgstr "Trouver des css par menu Nav"
+msgid "Find styles by Nav Menu"
+msgstr "Trouver des styles par menu Nav"
 
 #: includes/forms/addl_panels.php:29
 msgid "Use the \"All Styles\" panel to edit groups of selectors from a single combined list."
-msgstr "Utilisez le panneau « Tous les css » pour éditer des groupes de sélecteurs à partir d'une seule liste combinée."
+msgstr "Utilisez le panneau « Tous les styles » pour éditer des groupes de sélecteurs à partir d'une seule liste combinée."
 
 #: includes/forms/addl_panels.php:29
-msgid "Find related css"
-msgstr "Trouver des css connexes"
+msgid "Find related styles"
+msgstr "Trouver des styles connexes"
 
 #: includes/forms/addl_panels.php:28
 msgid "Keep the colors you select just a click away. No more searching for hex codes and RGB values."
@@ -864,12 +864,12 @@ msgid "Quick Preview"
 msgstr "Aperçu rapide"
 
 #: includes/forms/addl_panels.php:26
-msgid "Apply the power of CTC's top-rated interface to your site's plugin css. All new design makes it much easier to get the results you want."
-msgstr "Appliquez la puissance de l’interface de qualité de CTC aux css de l’extension de votre site. La nouvelle conception rend beaucoup plus facile l’obtention des résultats souhaités."
+msgid "Apply the power of CTC's top-rated interface to your site's plugin styles. All new design makes it much easier to get the results you want."
+msgstr "Appliquez la puissance de l’interface de qualité de CTC aux styles de l’extension de votre site. La nouvelle conception rend beaucoup plus facile l’obtention des résultats souhaités."
 
 #: includes/forms/addl_panels.php:25
 msgid "Customize Plugin Stylesheets"
-msgstr "Personnaliser les feuilles de css d’extensions"
+msgstr "Personnaliser les feuilles de styles d’extensions"
 
 #: includes/forms/addl_panels.php:23
 msgid "We've packed in more features to make design work quicker and easier with <strong>Child Theme Configurator Pro.</strong>"
@@ -933,15 +933,15 @@ msgstr "Utiliser le code promo"
 
 #: includes/forms/addl_css.php:11
 msgid "Stylesheets that are currently being loaded by the parent theme are automatically selected below (except for Bootstrap stylesheets which add a large amount data to the configuration). To further reduce overhead, select only the additional stylesheets you wish to customize."
-msgstr "Les feuilles de css actuellement chargées par le thème principal sont automatiquement sélectionnées ci-dessous (à l’exception des feuilles de style Bootstrap qui ajoutent une grande quantité de données à la configuration). Pour réduire davantage la charge, sélectionnez uniquement les feuilles de style supplémentaires que vous souhaitez personnaliser."
+msgstr "Les feuilles de styles actuellement chargées par le thème principal sont automatiquement sélectionnées ci-dessous (à l’exception des feuilles de style Bootstrap qui ajoutent une grande quantité de données à la configuration). Pour réduire davantage la charge, sélectionnez uniquement les feuilles de style supplémentaires que vous souhaitez personnaliser."
 
 #: includes/forms/addl_css.php:7
 msgid "Parse additional stylesheets:"
 msgstr "Analyser des feuilles de style supplémentaires :"
 
 #: includes/forms/notices.php:68
-msgid "<strong>However, some css could not be parsed due to memory limits.</strong> Try deselecting \"Additional Stylesheets\" below and click \"Generate/Rebuild Child Theme Files\". %sWhy am I seeing this?%s"
-msgstr "<strong>Cependant, certains css n’ont  pu être analysés en raison des limites de la mémoire.</strong> Essayez de désélectionner « Feuilles de css supplémentaires » ci-dessous et cliquez sur « Générer / Reconstruire les fichiers du thème enfants ». %sPourquoi est-ce que je vois ça ?%s"
+msgid "<strong>However, some styles could not be parsed due to memory limits.</strong> Try deselecting \"Additional Stylesheets\" below and click \"Generate/Rebuild Child Theme Files\". %sWhy am I seeing this?%s"
+msgstr "<strong>Cependant, certains styles n’ont  pu être analysés en raison des limites de la mémoire.</strong> Essayez de désélectionner « Feuilles de styles supplémentaires » ci-dessous et cliquez sur « Générer / Reconstruire les fichiers du thème enfants ». %sPourquoi est-ce que je vois ça ?%s"
 
 #: includes/forms/notices.php:60
 msgid "Child Theme Configurator needs to update its internal data. Please set your preferences below and click \"Generate Child Theme Files\" to update your configuration."

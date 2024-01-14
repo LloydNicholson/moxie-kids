@@ -1,8 +1,6 @@
 <?php
 /**
  * Admin\API\Reports\SqlQuery class file.
- *
- * @package WooCommerce Admin/Classes
  */
 
 namespace Automattic\WooCommerce\Admin\API\Reports;
@@ -113,13 +111,13 @@ class SqlQuery {
 		 * @param array  $clauses The original arguments for the request.
 		 * @param string $context The data store context.
 		 */
-		$clauses = apply_filters( "wc_admin_clauses_{$type}", $clauses, $this->context );
+		$clauses = apply_filters( "woocommerce_analytics_clauses_{$type}", $clauses, $this->context );
 		/**
 		 * Filter SQL clauses by type and context.
 		 *
 		 * @param array  $clauses The original arguments for the request.
 		 */
-		$clauses = apply_filters( "wc_admin_clauses_{$type}_{$this->context}", $clauses );
+		$clauses = apply_filters( "woocommerce_analytics_clauses_{$type}_{$this->context}", $clauses );
 		return implode( ' ', $clauses );
 	}
 

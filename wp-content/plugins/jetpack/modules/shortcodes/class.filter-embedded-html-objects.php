@@ -5,7 +5,7 @@
  * This file contains the code that converts HTML embeds into shortcodes
  * for when the user copy/pastes in HTML.
  *
- * @package Jetpack
+ * @package automattic/jetpack
  */
 
 add_filter( 'pre_kses', array( 'Filter_Embedded_HTML_Objects', 'filter' ), 11 );
@@ -152,7 +152,7 @@ class Filter_Embedded_HTML_Objects {
 			}
 		}
 
-		if ( count( $unfiltered_content_tokens ) > 0 ) {
+		if ( $unfiltered_content_tokens !== array() ) {
 			// Replace any tokens generated earlier with their original unfiltered text.
 			$html = str_replace( array_keys( $unfiltered_content_tokens ), $unfiltered_content_tokens, $html );
 		}
@@ -194,12 +194,10 @@ class Filter_Embedded_HTML_Objects {
 			} else {
 				self::$html_strpos_filters[ $match ] = $callback;
 			}
+		} elseif ( $is_regexp ) {
+			self::$regexp_filters[ $match ] = $callback;
 		} else {
-			if ( $is_regexp ) {
-				self::$regexp_filters[ $match ] = $callback;
-			} else {
-				self::$strpos_filters[ $match ] = $callback;
-			}
+			self::$strpos_filters[ $match ] = $callback;
 		}
 	}
 
@@ -222,17 +220,22 @@ class Filter_Embedded_HTML_Objects {
 	 * @param array $matches Array of matches.
 	 */
 	private static function dispatch_entities( $matches ) {
-		$matches[0] = html_entity_decode( $matches[0] );
+		$orig_html       = $matches[0];
+		$decoded_matches = array( html_entity_decode( $matches[0], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 ) );
 
-		return self::dispatch( $matches );
+		return self::dispatch( $decoded_matches, $orig_html );
 	}
 
 	/**
 	 * Filter and replace HTML element.
 	 *
-	 * @param array $matches Array of matches.
+	 * @param array  $matches Array of matches.
+	 * @param string $orig_html Original html. Returned if no results are found via $matches processing.
 	 */
-	private static function dispatch( $matches ) {
+	private static function dispatch( $matches, $orig_html = null ) {
+		if ( null === $orig_html ) {
+			$orig_html = $matches[0];
+		}
 		$html  = preg_replace( '%&#0*58;//%', '://', $matches[0] );
 		$attrs = self::get_attrs( $html );
 		if ( isset( $attrs['src'] ) ) {
@@ -242,7 +245,7 @@ class Filter_Embedded_HTML_Objects {
 		} else {
 			// no src found, search html.
 			foreach ( self::$html_strpos_filters as $match => $callback ) {
-				if ( false !== strpos( $html, $match ) ) {
+				if ( str_contains( $html, $match ) ) {
 					return call_user_func( $callback, $attrs );
 				}
 			}
@@ -253,14 +256,14 @@ class Filter_Embedded_HTML_Objects {
 				}
 			}
 
-			return $matches[0];
+			return $orig_html;
 		}
 
 		$src = trim( $src );
 
 		// check source filter.
 		foreach ( self::$strpos_filters as $match => $callback ) {
-			if ( false !== strpos( $src, $match ) ) {
+			if ( str_contains( $src, $match ) ) {
 				return call_user_func( $callback, $attrs );
 			}
 		}
@@ -273,7 +276,7 @@ class Filter_Embedded_HTML_Objects {
 
 		// check html filters.
 		foreach ( self::$html_strpos_filters as $match => $callback ) {
-			if ( false !== strpos( $html, $match ) ) {
+			if ( str_contains( $html, $match ) ) {
 				return call_user_func( $callback, $attrs );
 			}
 		}
@@ -299,11 +302,11 @@ class Filter_Embedded_HTML_Objects {
 		// Keep the failed match so we can later replace it with a link,
 		// but return the original content to give others a chance too.
 		self::$failed_embeds[] = array(
-			'match' => $matches[0],
+			'match' => $orig_html,
 			'src'   => esc_url( $src ),
 		);
 
-		return $matches[0];
+		return $orig_html;
 	}
 
 	/**
@@ -338,7 +341,7 @@ class Filter_Embedded_HTML_Objects {
 	 */
 	public static function get_attrs( $html ) {
 		if (
-			! ( class_exists( 'DOMDocument' ) && function_exists( 'libxml_use_internal_errors' ) && function_exists( 'simplexml_load_string' ) ) ) {
+			! ( class_exists( 'DOMDocument' ) && function_exists( 'simplexml_load_string' ) ) ) {
 			trigger_error( // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
 				esc_html__( 'PHP’s XML extension is not available. Please contact your hosting provider to enable PHP’s XML extension.', 'jetpack' )
 			);

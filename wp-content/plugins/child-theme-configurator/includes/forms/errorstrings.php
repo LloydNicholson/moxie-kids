@@ -31,7 +31,7 @@ $errorstrings = array(
     '23'  => __( 'PclZip returned zero bytes.', 'child-theme-configurator' ),
     '24'  => __( 'Unpack failed -- %s', 'child-theme-configurator' ), // unused
     '25'  => __( 'Pack failed -- %s', 'child-theme-configurator' ), //unused
-    '26'  => __( 'Maximum number of css exceeded.', 'child-theme-configurator' ),
+    '26'  => __( 'Maximum number of styles exceeded.', 'child-theme-configurator' ),
     '27'  => __( 'Error moving file: %s', 'child-theme-configurator' ),
     '28'  => __( 'Could not set write permissions.', 'child-theme-configurator' ), // add_action( 'chld_thm_cfg_admin_notices', array( $this, 'writable_notice' ) );     
 

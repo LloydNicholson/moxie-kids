@@ -1354,7 +1354,7 @@ var selectmenu = $.widget( "ui.selectmenu", {
             })
             .menu( "instance" );
 
-        // Adjust menu css to dropdown
+        // Adjust menu styles to dropdown
         this.menu
             .addClass( "ui-corner-bottom" )
             .removeClass( "ui-corner-all" );

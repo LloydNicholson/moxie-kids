@@ -3,7 +3,7 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 /*
     Class: ChildThemeConfiguratorUI
-    Plugin URI: http://www.childthemeconfigurator.com/
+    Plugin URI: http://www.childthemeplugin.com/
     Description: Handles the plugin User Interface
     Author: Lilaea Media
     Author URI: http://www.lilaeamedia.com/
@@ -321,14 +321,14 @@ class ChildThemeConfiguratorUI {
             'anlz5_txt'                 => sprintf( __( '<p>First, verify you can <a href="%s">preview your home page with the Customizer</a> and try analyzing again.</p><p>If that does not work, try temporarily disabling plugins that <strong>minify CSS</strong> or that <strong>force redirects between HTTP and HTTPS</strong>.</p>', 'child-theme-configurator' ), admin_url( '/customize.php' ) ), // . '?page=' . CHLD_THM_CFG_MENU ),
             'anlz6_txt'                 => __( 'Click to show/hide PHP debug output', 'child-theme-configurator' ),
             // php error description modified v2.3.0
-            'anlz7_txt'                 => __( '<p><strong>PLEASE NOTE:</strong></p><p><em>The analyzer reveals errors that may otherwise go undetected. Unless this is a fatal error, WordPress may appear to work correctly; however, PHP will continue to log the error until it is resolved. Please contact the author of any theme or plugin</em> <strong>mentioned above</strong> <em>and cut/paste the error from the text area.</em> <strong>Do not use a screen capture as it may cut off part of the error text.</strong> <em>Additional information about the error may also be available in the <a href="http://www.childthemeconfigurator.com/child-theme-faqs/" target="_blank">CTC documentation</a>.</em></p>', 'child-theme-configurator' ),
+            'anlz7_txt'                 => __( '<p><strong>PLEASE NOTE:</strong></p><p><em>The analyzer reveals errors that may otherwise go undetected. Unless this is a fatal error, WordPress may appear to work correctly; however, PHP will continue to log the error until it is resolved. Please contact the author of any theme or plugin</em> <strong>mentioned above</strong> <em>and cut/paste the error from the text area.</em> <strong>Do not use a screen capture as it may cut off part of the error text.</strong> <em>Additional information about the error may also be available in the <a href="http://www.childthemeplugin.com/child-theme-faqs/" target="_blank">CTC documentation</a>.</em></p>', 'child-theme-configurator' ),
             'anlz8_txt'                 => __( 'Do Not Activate "%s"! A PHP FATAL ERROR has been detected.', 'child-theme-configurator' ),
             'anlz9_txt'                 => __( 'This theme loads stylesheets after the wp_styles queue.', 'child-theme-configurator' ),
-            'anlz10_txt'                => __( '<p>This makes it difficult for plugins to override these css. You can try to resolve this using the  "Repair header template" option (Step 6, "Additional handling options", below).</p>', 'child-theme-configurator' ),
+            'anlz10_txt'                => __( '<p>This makes it difficult for plugins to override these styles. You can try to resolve this using the  "Repair header template" option (Step 6, "Additional handling options", below).</p>', 'child-theme-configurator' ),
             'anlz11_txt'                => __( "This theme loads the parent theme's <code>style.css</code> file outside the wp_styles queue.", 'child-theme-configurator' ),
             'anlz12_txt'                => __( '<p>This is common with older themes but requires the use of <code>@import</code>, which is no longer recommended. You can try to resolve this using the "Repair header template" option (see step 6, "Additional handling options", below).</p>', 'child-theme-configurator' ),
             'anlz13_txt'                => __( 'This child theme does not load a Configurator stylesheet.', 'child-theme-configurator' ),
-            'anlz14_txt'                => __( '<p>If you want to customize css using this plugin, please click "Configure Child Theme" again to add this to the settings.</p>', 'child-theme-configurator' ),
+            'anlz14_txt'                => __( '<p>If you want to customize styles using this plugin, please click "Configure Child Theme" again to add this to the settings.</p>', 'child-theme-configurator' ),
             'anlz15_txt'                => __( "This child theme uses the parent stylesheet but does not load the parent theme's <code>style.css</code> file.", 'child-theme-configurator' ),
             'anlz16_txt'                => __( '<p>Please select a stylesheet handling method or check "Ignore parent theme stylesheets" (see step 6, below).</p>', 'child-theme-configurator' ),
             'anlz17_txt'                => __( 'This child theme appears to be functioning correctly.', 'child-theme-configurator' ),
@@ -338,7 +338,7 @@ class ChildThemeConfiguratorUI {
             'anlz21_txt'                => __( "This child theme uses <code>@import</code> to load the parent theme's <code>style.css</code> file.", 'child-theme-configurator' ),
             'anlz22_txt'                => __( '<p>Please consider selecting "Use the WordPress style queue" for the parent stylesheet handling option (see step 6, below).</p>', 'child-theme-configurator' ),
             'anlz23_txt'                => __( 'This theme loads additional stylesheets after the <code>style.css</code> file:', 'child-theme-configurator' ),
-            'anlz24_txt'                => __( '<p>Consider saving new custom css to a "Separate stylesheet" (see step 5, below) so that you can customize these css.</p>', 'child-theme-configurator' ),
+            'anlz24_txt'                => __( '<p>Consider saving new custom styles to a "Separate stylesheet" (see step 5, below) so that you can customize these styles.</p>', 'child-theme-configurator' ),
             'anlz25_txt'                => __( "The parent theme's <code>style.css</code> file is being loaded automatically.", 'child-theme-configurator' ),
             'anlz26_txt'                => __( '<p>The Configurator selected "Do not add any parent stylesheet handling" for the "Parent stylesheet handling" option (see step 6, below).</p>', 'child-theme-configurator' ),
             'anlz27_txt'                => __( "This theme does not require the parent theme's <code>style.css</code> file for its appearance.", 'child-theme-configurator' ),
@@ -352,7 +352,8 @@ class ChildThemeConfiguratorUI {
             'anlzrtl2_txt'              => __( 'Use the Web Fonts tab to add a link to the parent RTL stylesheet. See the documentation for more information.</p>', 'child-theme-configurator' ), // added 2.3.0
             'anlzcache1_txt'            => __( 'Both WP Rocket and Autoptimize plugins are enabled.', 'child-theme-configurator' ),
             'anlzcache2_txt'            => __( 'The combination of these two plugins interferes with the Analysis results. Please temporarily deactivate one of them and Analyze again.', 'child-theme-configurator' ),
-            'anlzconfig_txt'            => __( '<p><strong>The WordPress configuration file has been modified incorrectly.</strong> Please see <a href="http://www.childthemeconfigurator.com/child-theme-faqs/#constants" target="_blank">this FAQ</a> for more information.</p>', 'child-theme-configurator' ),
+            'anlzconfig_txt'            => __( '<p><strong>The WordPress configuration file has been modified incorrectly.</strong> Please see <a href="http://www.childthemeplugin.com/child-theme-faqs/#constants" target="_blank">this FAQ</a> for more information.</p>', 'child-theme-configurator' ),
+            'dismiss_txt'               => __( 'Dismiss this notice.', 'child-theme-configurator' ),
         ) );
         wp_localize_script(
             'chld-thm-cfg-admin', 

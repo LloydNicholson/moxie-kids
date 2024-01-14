@@ -1,8 +1,6 @@
 <?php
 /**
  * Admin\API\Reports\DataStore class file.
- *
- * @package WooCommerce Admin/Classes
  */
 
 namespace Automattic\WooCommerce\Admin\API\Reports;
@@ -99,6 +97,15 @@ class DataStore extends SqlQuery {
 	public function __construct() {
 		self::set_db_table_name();
 		$this->assign_report_columns();
+
+		if ( property_exists( $this, 'report_columns' ) ) {
+			$this->report_columns = apply_filters(
+				'woocommerce_admin_report_columns',
+				$this->report_columns,
+				$this->context,
+				self::get_db_table_name()
+			);
+		}
 	}
 
 	/**
@@ -117,6 +124,23 @@ class DataStore extends SqlQuery {
 		if ( static::$table_name && ! isset( $wpdb->{static::$table_name} ) ) {
 			$wpdb->{static::$table_name} = $wpdb->prefix . static::$table_name;
 		}
+	}
+
+	/**
+	 * Whether or not the report should use the caching layer.
+	 *
+	 * Provides an opportunity for plugins to prevent reports from using cache.
+	 *
+	 * @return boolean Whether or not to utilize caching.
+	 */
+	protected function should_use_cache() {
+		/**
+		 * Determines if a report will utilize caching.
+		 *
+		 * @param bool $use_cache Whether or not to use cache.
+		 * @param string $cache_key The report's cache key. Used to identify the report.
+		 */
+		return (bool) apply_filters( 'woocommerce_analytics_report_should_use_cache', true, $this->cache_key );
 	}
 
 	/**
@@ -143,7 +167,11 @@ class DataStore extends SqlQuery {
 	 * @return mixed
 	 */
 	protected function get_cached_data( $cache_key ) {
-		return Cache::get( $cache_key );
+		if ( $this->should_use_cache() ) {
+			return Cache::get( $cache_key );
+		}
+
+		return false;
 	}
 
 	/**
@@ -154,7 +182,11 @@ class DataStore extends SqlQuery {
 	 * @return bool
 	 */
 	protected function set_cached_data( $cache_key, $value ) {
-		return Cache::set( $cache_key, $value );
+		if ( $this->should_use_cache() ) {
+			return Cache::set( $cache_key, $value );
+		}
+
+		return true;
 	}
 
 	/**
@@ -462,10 +494,10 @@ class DataStore extends SqlQuery {
 				}
 			}
 			// @todo - Do this without modifying $query_args?
-			$query_args['adj_after']               = $new_start_date;
-			$query_args['adj_before']              = $new_end_date;
-			$adj_after                             = $new_start_date->format( TimeInterval::$sql_datetime_format );
-			$adj_before                            = $new_end_date->format( TimeInterval::$sql_datetime_format );
+			$query_args['adj_after']  = $new_start_date;
+			$query_args['adj_before'] = $new_end_date;
+			$adj_after                = $new_start_date->format( TimeInterval::$sql_datetime_format );
+			$adj_before               = $new_end_date->format( TimeInterval::$sql_datetime_format );
 			$this->interval_query->clear_sql_clause( array( 'where_time', 'limit' ) );
 			$this->interval_query->add_sql_clause( 'where_time', "AND {$table_name}.date_created <= '$adj_before'" );
 			$this->interval_query->add_sql_clause( 'where_time', "AND {$table_name}.date_created >= '$adj_after'" );
@@ -546,7 +578,7 @@ class DataStore extends SqlQuery {
 	protected static function get_excluded_report_order_statuses() {
 		$excluded_statuses = \WC_Admin_Settings::get_option( 'woocommerce_excluded_report_order_statuses', array( 'pending', 'failed', 'cancelled' ) );
 		$excluded_statuses = array_merge( array( 'trash' ), $excluded_statuses );
-		return apply_filters( 'woocommerce_reports_excluded_order_statuses', $excluded_statuses );
+		return apply_filters( 'woocommerce_analytics_excluded_order_statuses', $excluded_statuses );
 	}
 
 	/**
@@ -649,7 +681,7 @@ class DataStore extends SqlQuery {
 	 * @param array  $query_args Parameters supplied by the user.
 	 * @param string $table_name Name of the db table relevant for the date constraint.
 	 */
-	protected function get_time_period_sql_params( $query_args, $table_name ) {
+	protected function add_time_period_sql_params( $query_args, $table_name ) {
 		$this->clear_sql_clause( array( 'from', 'where_time', 'where' ) );
 		if ( isset( $this->subquery ) ) {
 			$this->subquery->clear_sql_clause( 'where_time' );
@@ -777,7 +809,7 @@ class DataStore extends SqlQuery {
 	 *
 	 * @param array $query_args Parameters supplied by the user.
 	 */
-	protected function get_order_by_sql_params( $query_args ) {
+	protected function add_order_by_sql_params( $query_args ) {
 		if ( isset( $query_args['orderby'] ) ) {
 			$order_by_clause = $this->normalize_order_by( $query_args['orderby'] );
 		} else {
@@ -795,13 +827,13 @@ class DataStore extends SqlQuery {
 	 * @param array  $query_args Parameters supplied by the user.
 	 * @param string $table_name Name of the db table relevant for the date constraint.
 	 */
-	protected function get_intervals_sql_params( $query_args, $table_name ) {
+	protected function add_intervals_sql_params( $query_args, $table_name ) {
 		$this->clear_sql_clause( array( 'from', 'where_time', 'where' ) );
 
-		$this->get_time_period_sql_params( $query_args, $table_name );
+		$this->add_time_period_sql_params( $query_args, $table_name );
 
 		if ( isset( $query_args['interval'] ) && '' !== $query_args['interval'] ) {
-			$interval                         = $query_args['interval'];
+			$interval = $query_args['interval'];
 			$this->clear_sql_clause( 'select' );
 			$this->add_sql_clause( 'select', TimeInterval::db_datetime_format( $interval, $table_name ) );
 		}
@@ -1148,6 +1180,78 @@ class DataStore extends SqlQuery {
 	}
 
 	/**
+	 * Returns product attribute subquery elements used in JOIN and WHERE clauses,
+	 * based on query arguments from the user.
+	 *
+	 * @param array $query_args Parameters supplied by the user.
+	 * @return array
+	 */
+	protected function get_attribute_subqueries( $query_args ) {
+		global $wpdb;
+
+		$sql_clauses           = array(
+			'join'  => array(),
+			'where' => array(),
+		);
+		$match_operator        = $this->get_match_operator( $query_args );
+		$join_table            = $wpdb->prefix . 'wc_order_product_lookup';
+		$post_meta_comparators = array(
+			'='  => 'attribute_is',
+			'!=' => 'attribute_is_not',
+		);
+
+		foreach ( $post_meta_comparators as $comparator => $arg ) {
+			if ( ! isset( $query_args[ $arg ] ) || ! is_array( $query_args[ $arg ] ) ) {
+				continue;
+			}
+			foreach ( $query_args[ $arg ] as $attribute_term ) {
+				// We expect tuples of IDs.
+				if ( ! is_array( $attribute_term ) || 2 !== count( $attribute_term ) ) {
+					continue;
+				}
+
+				$attribute_id = intval( $attribute_term[0] );
+				$term_id      = intval( $attribute_term[1] );
+
+				// Tuple, but non-numeric.
+				if ( 0 === $attribute_id || 0 === $term_id ) {
+					continue;
+				}
+
+				// @todo: Use wc_get_attribute() instead ?
+				$attr_taxonomy = wc_attribute_taxonomy_name_by_id( $attribute_id );
+				// Invalid attribute ID.
+				if ( empty( $attr_taxonomy ) ) {
+					continue;
+				}
+
+				$attr_term = get_term_by( 'id', $term_id, $attr_taxonomy );
+				// Invalid term ID.
+				if ( false === $attr_term ) {
+					continue;
+				}
+
+				$meta_key   = wc_variation_attribute_name( $attr_taxonomy );
+				$meta_value = $attr_term->slug;
+				$join_alias = 'wpm1';
+
+				// If we're matching all filters (AND), we'll need multiple JOINs on postmeta.
+				// If not, just one.
+				if ( 'AND' === $match_operator || empty( $sql_clauses['join'] ) ) {
+					$join_idx              = count( $sql_clauses['join'] ) + 1;
+					$join_alias            = 'wpm' . $join_idx;
+					$sql_clauses['join'][] = "JOIN {$wpdb->postmeta} as {$join_alias} ON {$join_alias}.post_id = {$join_table}.variation_id";
+				}
+
+				// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				$sql_clauses['where'][] = $wpdb->prepare( "( {$join_alias}.meta_key = %s AND {$join_alias}.meta_value {$comparator} %s )", $meta_key, $meta_value );
+			}
+		}
+
+		return $sql_clauses;
+	}
+
+	/**
 	 * Returns logic operator for WHERE subclause based on 'match' query argument.
 	 *
 	 * @param array $query_args Parameters supplied by the user.
@@ -1190,7 +1294,7 @@ class DataStore extends SqlQuery {
 		 * @param string $field      The object type.
 		 * @param string $context    The data store context.
 		 */
-		$ids = apply_filters( 'wc_admin_reports_ ' . $field, $ids, $query_args, $field, $this->context );
+		$ids = apply_filters( 'woocommerce_analytics_ ' . $field, $ids, $query_args, $field, $this->context );
 
 		if ( ! empty( $ids ) ) {
 			$ids_str = implode( $separator, $ids );

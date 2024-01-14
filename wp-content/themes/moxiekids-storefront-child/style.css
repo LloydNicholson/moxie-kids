@@ -3,16 +3,16 @@ Theme Name: moxie-storefront-child
 Author: Lloyd Nicholson
 Author URI: https://lloydindevelopment.com
 Description: Fun Theme for Moxie Kids
-Version: 1.0
+Version: 1.0.0
+Template: storefront
 Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-
 @import "css/moxie.css";
 
 .site-footer {
-    color: white;
+  color: white;
 }
 
 .site-footer h1,
@@ -21,29 +21,77 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .site-footer h4,
 .site-footer h5,
 .site-footer h6 {
-    color: white;
+  color: white;
 }
 
 .site-footer a:not(.button) {
-    color: white;
+  color: white;
 }
 
 p {
-    font-family: Futura, serif;
+  font-family: "Verdona", "Futura", serif;
 }
 
 .entry-header {
-    display: none;
+  display: none;
 }
 
 .woocommerce-products-header {
-    display: none;
+  display: none;
 }
 
 .storefront-sorting {
-    display: none;
+  display: none;
 }
 
 #masthead {
-    margin-bottom: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 782px) {
+  html.gr__moxiekids_co_za {
+    margin-top: 0 !important;
+  }
+
+  header {
+    display: none !important;
+  }
+}
+
+/* Override form styling for woocommerce */
+.col-1,
+.col-2 {
+  width: 100%;
+  max-width: 100%;
+}
+
+.input-text {
+  width: 300px !important;
+}
+
+.woocommerce-billing-fields__field-wrapper {
+  width: 100% !important;
+}
+
+.storefront-full-width-content .woocommerce-tabs .panel {
+  float: left !important;
+}
+
+@media screen and (max-width: 782px) {
+  .button-outlined {
+    height: 130px;
+    min-height: 130px;
+  }
+}
+
+@media screen and (min-width: 782px) {
+  .parent-button-outlined {
+    padding: 5% 0;
+  }
+
+  .button-outlined {
+    padding: 10% 0;
+    height: 70px;
+    min-height: 70px;
+  }
 }

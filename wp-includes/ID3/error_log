@@ -1,0 +1,1 @@
+[26-Apr-2020 05:38:38 UTC] PHP Fatal error:  Class 'getid3_handler' not found in /home/du978g1l7yp8/public_html/wp-includes/ID3/module.audio.ac3.php on line 18

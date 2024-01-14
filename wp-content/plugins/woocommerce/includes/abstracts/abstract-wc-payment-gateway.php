@@ -2,12 +2,15 @@
 /**
  * Abstract payment gateway
  *
- * Hanldes generic payment gateway functionality which is extended by idividual payment gateways.
+ * Handles generic payment gateway functionality which is extended by individual payment gateways.
  *
  * @class WC_Payment_Gateway
  * @version 2.1.0
- * @package WooCommerce/Abstracts
+ * @package WooCommerce\Abstracts
  */
+
+use Automattic\Jetpack\Constants;
+use Automattic\WooCommerce\Internal\Utilities\HtmlSanitizer;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -21,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @class       WC_Payment_Gateway
  * @extends     WC_Settings_API
  * @version     2.1.0
- * @package     WooCommerce/Abstracts
+ * @package     WooCommerce\Abstracts
  */
 abstract class WC_Payment_Gateway extends WC_Settings_API {
 
@@ -132,6 +135,13 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 	public $new_method_label = '';
 
 	/**
+	 * Pay button ID if supported.
+	 *
+	 * @var string
+	 */
+	public $pay_button_id = '';
+
+	/**
 	 * Contains a users saved tokens for this gateway.
 	 *
 	 * @var array
@@ -190,7 +200,7 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 	 */
 	public function init_settings() {
 		parent::init_settings();
-		$this->enabled  = ! empty( $this->settings['enabled'] ) && 'yes' === $this->settings['enabled'] ? 'yes' : 'no';
+		$this->enabled = ! empty( $this->settings['enabled'] ) && 'yes' === $this->settings['enabled'] ? 'yes' : 'no';
 	}
 
 	/**
@@ -209,7 +219,7 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 	/**
 	 * Get the return url (thank you page).
 	 *
-	 * @param WC_Order $order Order object.
+	 * @param WC_Order|null $order Order object.
 	 * @return string
 	 */
 	public function get_return_url( $order = null ) {
@@ -230,7 +240,7 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 	 */
 	public function get_transaction_url( $order ) {
 
-		$return_url = '';
+		$return_url     = '';
 		$transaction_id = $order->get_transaction_id();
 
 		if ( ! empty( $this->view_transaction_url ) && ! empty( $transaction_id ) ) {
@@ -247,13 +257,15 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 	 */
 	protected function get_order_total() {
 
-		$total = 0;
+		$total    = 0;
 		$order_id = absint( get_query_var( 'order-pay' ) );
 
 		// Gets order total from "pay for order" page.
 		if ( 0 < $order_id ) {
 			$order = wc_get_order( $order_id );
-			$total = (float) $order->get_total();
+			if ( $order ) {
+				$total = (float) $order->get_total();
+			}
 
 			// Gets order total from cart/checkout.
 		} elseif ( 0 < WC()->cart->total ) {
@@ -293,7 +305,8 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 	 * @return string
 	 */
 	public function get_title() {
-		return apply_filters( 'woocommerce_gateway_title', $this->title, $this->id );
+		$title = wc_get_container()->get( HtmlSanitizer::class )->sanitize( (string) $this->title, HtmlSanitizer::LOW_HTML_BALANCED_TAGS_NO_LINKS );
+		return apply_filters( 'woocommerce_gateway_title', $title, $this->id );
 	}
 
 	/**
@@ -315,6 +328,16 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 		$icon = $this->icon ? '<img src="' . WC_HTTPS::force_https_url( $this->icon ) . '" alt="' . esc_attr( $this->get_title() ) . '" />' : '';
 
 		return apply_filters( 'woocommerce_gateway_icon', $icon, $this->id );
+	}
+
+	/**
+	 * Return the gateway's pay button ID.
+	 *
+	 * @since 3.9.0
+	 * @return string
+	 */
+	public function get_pay_button_id() {
+		return sanitize_html_class( $this->pay_button_id );
 	}
 
 	/**
@@ -350,10 +373,10 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 	 * If the gateway declares 'refunds' support, this will allow it to refund.
 	 * a passed in amount.
 	 *
-	 * @param  int    $order_id Order ID.
-	 * @param  float  $amount Refund amount.
-	 * @param  string $reason Refund reason.
-	 * @return boolean True or false based on success, or a WP_Error object.
+	 * @param  int        $order_id Order ID.
+	 * @param  float|null $amount Refund amount.
+	 * @param  string     $reason Refund reason.
+	 * @return bool|\WP_Error True or false based on success, or a WP_Error object.
 	 */
 	public function process_refund( $order_id, $amount = null, $reason = '' ) {
 		return false;
@@ -412,7 +435,7 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 	}
 
 	/**
-	 * Core credit card form which gateways can used if needed. Deprecated - inherit WC_Payment_Gateway_CC instead.
+	 * Core credit card form which gateways can use if needed. Deprecated - inherit WC_Payment_Gateway_CC instead.
 	 *
 	 * @param  array $args Arguments.
 	 * @param  array $fields Fields.
@@ -433,13 +456,15 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 	public function tokenization_script() {
 		wp_enqueue_script(
 			'woocommerce-tokenization-form',
-			plugins_url( '/assets/js/frontend/tokenization-form' . ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' ) . '.js', WC_PLUGIN_FILE ),
+			plugins_url( '/assets/js/frontend/tokenization-form' . ( Constants::is_true( 'SCRIPT_DEBUG' ) ? '' : '.min' ) . '.js', WC_PLUGIN_FILE ),
 			array( 'jquery' ),
 			WC()->version
 		);
 
 		wp_localize_script(
-			'woocommerce-tokenization-form', 'wc_tokenization_form_params', array(
+			'woocommerce-tokenization-form',
+			'wc_tokenization_form_params',
+			array(
 				'is_registration_required' => WC()->checkout()->is_registration_required(),
 				'is_logged_in'             => is_user_logged_in(),
 			)
@@ -521,7 +546,7 @@ abstract class WC_Payment_Gateway extends WC_Settings_API {
 			esc_html__( 'Save to account', 'woocommerce' )
 		);
 
-		echo apply_filters( 'woocommerce_payment_gateway_save_new_payment_method_option_html', $html, $this );
+		echo apply_filters( 'woocommerce_payment_gateway_save_new_payment_method_option_html', $html, $this ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

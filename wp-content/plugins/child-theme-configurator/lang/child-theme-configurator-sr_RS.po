@@ -313,7 +313,7 @@ msgstr ""
 
 #: includes/class-ctc.php:1277
 msgid ""
-"<strong>However, some css could not be parsed due to memory limits.</strong> Try "
+"<strong>However, some styles could not be parsed due to memory limits.</strong> Try "
 "deselecting \"Additional Stylesheets\" below and click \"Generate/Rebuild Child Theme "
 "Files\". %sWhy am I seeing this?%s"
 msgstr ""
@@ -415,7 +415,7 @@ msgstr "Datoteke sa stilovima za prilagođavanje plugin-a  "
 
 #: includes/forms/addl_panels.php:23
 msgid ""
-"Apply the power of CTC's top-rated interface to your site's plugin css. All new "
+"Apply the power of CTC's top-rated interface to your site's plugin styles. All new "
 "design makes it much easier to get the results you want."
 msgstr ""
 "Primenite moć najbolje ocenjenih CTC interfejsa na plugin stilove svog site-a. "
@@ -430,7 +430,7 @@ msgid "Test your child theme with a single click."
 msgstr "Testirajte svoju podređenu temu jednim klikom."
 
 #: includes/forms/addl_panels.php:25
-msgid "Find related css"
+msgid "Find related styles"
 msgstr "Nađite povezane stilove"
 
 #: includes/forms/addl_panels.php:25
@@ -441,7 +441,7 @@ msgstr ""
 "kombinovane liste. "
 
 #: includes/forms/addl_panels.php:26
-msgid "Find css by Nav Menu"
+msgid "Find styles by Nav Menu"
 msgstr "Nađi stilove u navigacionom meniju"
 
 #: includes/forms/addl_panels.php:26
@@ -868,7 +868,7 @@ msgstr "Koristite da biste uneli shorthand CSS ili nove @media upite i selektore
 
 #: includes/forms/query-selector.php:90
 msgid ""
-"Values entered here are merged into existing child css or added to the child "
+"Values entered here are merged into existing child styles or added to the child "
 "stylesheet if they do not exist in the parent."
 msgstr ""
 "Ovde unete vrednosti spajaju se u postojeće podređene stilove ili se dodaju podređenoj "

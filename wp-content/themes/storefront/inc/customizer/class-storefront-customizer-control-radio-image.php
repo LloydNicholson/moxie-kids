@@ -30,7 +30,7 @@ class Storefront_Custom_Radio_Image_Control extends WP_Customize_Control {
 	public $type = 'radio-image';
 
 	/**
-	 * Enqueue scripts and css for the custom control.
+	 * Enqueue scripts and styles for the custom control.
 	 *
 	 * Scripts are hooked at {@see 'customize_controls_enqueue_scripts'}.
 	 *

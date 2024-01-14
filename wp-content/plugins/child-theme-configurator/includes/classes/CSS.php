@@ -4,9 +4,9 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 /*
     Class: ChildThemeConfiguratorCSS
-    Plugin URI: http://www.childthemeconfigurator.com/
+    Plugin URI: http://www.childthemeplugin.com/
     Description: Handles all CSS input, output, parsing, normalization and storage
-    Version: 2.5.0
+    Version: 2.6.3
     Author: Lilaea Media
     Author URI: http://www.lilaeamedia.com/
     Text Domain: chld_thm_cfg
@@ -67,12 +67,12 @@ class ChildThemeConfiguratorCSS {
     var $child_version;     // stylesheet version
     
     // miscellaneous properties
-    var $fsize;             // used to check if css changed since last update
+    var $fsize;             // used to check if styles changed since last update
     var $converted;         // @imports coverted to <link>?
     var $version;           // version of last saved data
     var $templates;         // cache of parent template files
     var $imports;           // @import rules
-    var $recent;            // history of edited css
+    var $recent;            // history of edited styles
     var $max_sel;
     var $memory;
     var $styles;            // temporary update cache
@@ -172,7 +172,7 @@ class ChildThemeConfiguratorCSS {
         $this->ignoreparnt      = 0;
         $this->qpriority        = 10;
         $this->mpriority        = 10;
-        $this->version          = '2.5.0';
+        $this->version          = '2.6.3';
         
         // do not set enqueue, not being set is used to flag old versions
 
@@ -1060,7 +1060,7 @@ class ChildThemeConfiguratorCSS {
         */
         // turn off caching when parsing files to reduce memory usage
         $this->ctc()->cache_updates = FALSE;
-        $this->styles = ''; // reset css
+        $this->styles = ''; // reset styles
         $this->read_stylesheet( $template, $file );
         // get theme name
         $regex = '#Theme Name:\s*(.+?)\n#i';
@@ -1102,7 +1102,7 @@ class ChildThemeConfiguratorCSS {
             endif;
             */
             $this->styles .= @file_get_contents( $stylesheet_verified ) . "\n";
-            //echo 'count after get contents: ' . strlen( $this->css ) . LF;
+            //echo 'count after get contents: ' . strlen( $this->styles ) . LF;
         else:
             //echo 'not ok!' . LF;
         endif;
@@ -1162,7 +1162,7 @@ class ChildThemeConfiguratorCSS {
                     . ( isset( $ruleset[ $segment ] ) ?
                         $ruleset[ $segment ] : '' );
             endforeach;
-            // stripping rulesets leaves base css
+            // stripping rulesets leaves base styles
             $this->styles = preg_replace( $regex, '', $this->styles );
         endforeach;
         $ruleset[ $basequery ] = $this->styles;
@@ -1189,7 +1189,8 @@ class ChildThemeConfiguratorCSS {
                 foreach ( explode( ';', $stuff ) as $ruleval ):
                     if ( FALSE === strpos( $ruleval, ':' ) ) continue;
                     list( $rule, $value ) = explode( ':', $ruleval, 2 );
-                    $rule   = trim( $rule );
+                    // trim, replace spaces with dashes, make lowercase
+                    $rule   = preg_replace( '/\s+/', '-', trim( strtolower( $rule ) ) );
                     $rule   = preg_replace_callback( "/[^\w\-]/", array( $this, 'to_ascii' ), $rule );
                     // handle base64 data
                     $value  = trim( str_replace( '%%semi%%', ';', $value ) );
@@ -1233,7 +1234,7 @@ class ChildThemeConfiguratorCSS {
                         /**
                          * The reset flag forces the values for a given property (rule) to be rewritten completely 
                          * when using the raw CSS input or when reading from a stylesheet.
-                         * This permits complete blocks of style data to be entered verbatim, replacing existing css.
+                         * This permits complete blocks of style data to be entered verbatim, replacing existing styles.
                          * When entering individual values from the Query/Selector inputs, multiple fallback values for existing 
                          * properties can be added in the order they are entered (e.g., margin: 1rem; margin: 1em;)
                          */

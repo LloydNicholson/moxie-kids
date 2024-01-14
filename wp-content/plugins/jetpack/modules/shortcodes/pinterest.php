@@ -7,7 +7,7 @@
  * Example URL: https://pinterest.com/pin/129056345550241149/
  * Second Example URL: https://uk.pinterest.com/annsawesomepins/travel/
  *
- * @package Jetpack
+ * @package automattic/jetpack
  */
 
 wp_embed_register_handler(
@@ -37,7 +37,7 @@ function pinterest_embed_handler( $matches, $attr, $url ) {
 	wp_enqueue_script( 'pinterest-embed', $script_src, array(), JETPACK__VERSION, true );
 
 	$path = wp_parse_url( $url, PHP_URL_PATH );
-	if ( 0 === strpos( $path, '/pin/' ) ) {
+	if ( str_starts_with( $path, '/pin/' ) ) {
 		$embed_type = 'embedPin';
 	} elseif ( preg_match( '#^/([^/]+)/?$#', $path ) ) {
 		$embed_type = 'embedUser';

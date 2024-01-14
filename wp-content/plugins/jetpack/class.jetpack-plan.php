@@ -1,77 +1,67 @@
 <?php //phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 /**
- * Handles fetching of the site's plan from WordPress.com and caching the value locally.
+ * Handles fetching of the site's plan and products from WordPress.com and caching values locally.
+ *
+ * @deprecated 12.3 use Automattic\Jetpack\Current_Plan instead.
  *
  * Not to be confused with the `Jetpack_Plans` class (in `_inc/lib/plans.php`), which
  * fetches general information about all available plans from WordPress.com, side-effect free.
  *
- * @package Jetpack
+ * @package automattic/jetpack
  */
 
-use Automattic\Jetpack\Connection\Client;
+use Automattic\Jetpack\Current_Plan;
 
 /**
- * Provides methods methods for fetching the plan from WordPress.com.
+ * Provides methods methods for fetching the site's plan and products from WordPress.com.
  */
 class Jetpack_Plan {
 	/**
-	 * A cache variable to hold the active plan for the current request.
+	 * The name of the option that will store the site's plan.
+	 *
+	 * @deprecated 12.3 use Automattic\Jetpack\Current_Plan::PLAN_OPTION
+	 *
+	 * @var string
+	 */
+	const PLAN_OPTION = Current_Plan::PLAN_OPTION;
+
+	/**
+	 * The name of the option that will store the site's products.
+	 *
+	 * @deprecated 12.3 use Automattic\Jetpack\Current_Plan::SITE_PRODUCTS_OPTION
+	 *
+	 * @var string
+	 */
+	const SITE_PRODUCTS_OPTION = Current_Plan::SITE_PRODUCTS_OPTION;
+
+	/**
+	 * Array of products supported by each plan.
+	 *
+	 * @deprecated 12.3 use Automattic\Jetpack\Current_Plan::PLAN_DATA
 	 *
 	 * @var array
 	 */
-	private static $active_plan_cache;
-
-	const PLAN_OPTION = 'jetpack_active_plan';
+	const PLAN_DATA = Current_Plan::PLAN_DATA;
 
 	/**
 	 * Given a response to the `/sites/%d` endpoint, will parse the response and attempt to set the
-	 * plan from the response.
+	 * site's plan and products from the response.
+	 *
+	 * @deprecated 12.3 use Automattic\Jetpack\Current_Plan::update_from_sites_response instead.
 	 *
 	 * @param array $response The response from `/sites/%d`.
 	 * @return bool Was the plan successfully updated?
 	 */
 	public static function update_from_sites_response( $response ) {
-		// Bail if there was an error or malformed response.
-		if ( is_wp_error( $response ) || ! is_array( $response ) || ! isset( $response['body'] ) ) {
-			return false;
-		}
+		_deprecated_function( __METHOD__, '12.3', 'Automattic\Jetpack\Current_Plan::update_from_sites_response' );
 
-		$body = wp_remote_retrieve_body( $response );
-		if ( is_wp_error( $body ) ) {
-			return false;
-		}
-
-		// Decode the results.
-		$results = json_decode( $body, true );
-
-		// Bail if there were no results or plan details returned.
-		if ( ! is_array( $results ) || ! isset( $results['plan'] ) ) {
-			return false;
-		}
-
-		// Store the new plan in an option and return true if updated.
-		$result = update_option( self::PLAN_OPTION, $results['plan'], true );
-		if ( ! $result ) {
-			// If we got to this point, then we know we need to update. So, assume there is an issue
-			// with caching. To fix that issue, we can delete the current option and then update.
-			delete_option( self::PLAN_OPTION );
-			$result = update_option( self::PLAN_OPTION, $results['plan'], true );
-		}
-
-		if ( $result ) {
-			// Reset the cache since we've just updated the plan.
-			self::$active_plan_cache = null;
-		}
-
-		return $result;
+		return Current_Plan::update_from_sites_response( $response );
 	}
 
 	/**
 	 * Make an API call to WordPress.com for plan status
 	 *
-	 * @uses Jetpack_Options::get_option()
-	 * @uses Client::wpcom_json_api_request_as_blog()
-	 * @uses update_option()
+	 * @deprecated 12.3 use Automattic\Jetpack\Current_Plan::refresh_from_wpcom instead.
 	 *
 	 * @access public
 	 * @static
@@ -79,17 +69,15 @@ class Jetpack_Plan {
 	 * @return bool True if plan is updated, false if no update
 	 */
 	public static function refresh_from_wpcom() {
-		// Make the API request.
-		$request  = sprintf( '/sites/%d', Jetpack_Options::get_option( 'id' ) );
-		$response = Client::wpcom_json_api_request_as_blog( $request, '1.1' );
+		_deprecated_function( __METHOD__, '12.3', 'Automattic\Jetpack\Current_Plan::refresh_from_wpcom' );
 
-		return self::update_from_sites_response( $response );
+		return Current_Plan::refresh_from_wpcom();
 	}
 
 	/**
 	 * Get the plan that this Jetpack site is currently using.
 	 *
-	 * @uses get_option()
+	 * @deprecated 12.3 use Automattic\Jetpack\Current_Plan::get instead.
 	 *
 	 * @access public
 	 * @static
@@ -97,105 +85,46 @@ class Jetpack_Plan {
 	 * @return array Active Jetpack plan details
 	 */
 	public static function get() {
-		// this can be expensive to compute so we cache for the duration of a request.
-		if ( is_array( self::$active_plan_cache ) && ! empty( self::$active_plan_cache ) ) {
-			return self::$active_plan_cache;
-		}
+		_deprecated_function( __METHOD__, '12.3', 'Automattic\Jetpack\Current_Plan::get' );
 
-		$plan = get_option( self::PLAN_OPTION, array() );
+		return Current_Plan::get();
+	}
 
-		// Set the default options.
-		$plan = wp_parse_args(
-			$plan,
-			array(
-				'product_slug' => 'jetpack_free',
-				'class'        => 'free',
-				'features'     => array(
-					'active' => array(),
-				),
-			)
-		);
+	/**
+	 * Get the site's products.
+	 *
+	 * @deprecated 12.3 use Automattic\Jetpack\Current_Plan::get_products instead.
+	 *
+	 * @access public
+	 * @static
+	 *
+	 * @return array Active Jetpack products
+	 */
+	public static function get_products() {
+		_deprecated_function( __METHOD__, '12.3', 'Automattic\Jetpack\Current_Plan::get_products' );
 
-		$supports = array();
+		return Current_Plan::get_products();
+	}
 
-		// Define what paid modules are supported by personal plans.
-		$personal_plans = array(
-			'jetpack_personal',
-			'jetpack_personal_monthly',
-			'personal-bundle',
-			'personal-bundle-monthly',
-			'personal-bundle-2y',
-		);
+	/**
+	 * Gets the minimum plan slug that supports the given feature
+	 *
+	 * @deprecated 12.3 use Automattic\Jetpack\Current_Plan::get_minimum_plan_for_feature instead.
+	 *
+	 * @param string $feature The name of the feature.
+	 * @return string|bool The slug for the minimum plan that supports.
+	 *  the feature or false if not found
+	 */
+	public static function get_minimum_plan_for_feature( $feature ) {
+		_deprecated_function( __METHOD__, '12.3', 'Automattic\Jetpack\Current_Plan::get_minimum_plan_for_feature' );
 
-		if ( in_array( $plan['product_slug'], $personal_plans, true ) ) {
-			// special support value, not a module but a separate plugin.
-			$supports[]    = 'akismet';
-			$supports[]    = 'recurring-payments';
-			$plan['class'] = 'personal';
-		}
-
-		// Define what paid modules are supported by premium plans.
-		$premium_plans = array(
-			'jetpack_premium',
-			'jetpack_premium_monthly',
-			'value_bundle',
-			'value_bundle-monthly',
-			'value_bundle-2y',
-		);
-
-		if ( in_array( $plan['product_slug'], $premium_plans, true ) ) {
-			$supports[]    = 'akismet';
-			$supports[]    = 'recurring-payments';
-			$supports[]    = 'simple-payments';
-			$supports[]    = 'vaultpress';
-			$supports[]    = 'videopress';
-			$plan['class'] = 'premium';
-		}
-
-		// Define what paid modules are supported by professional plans.
-		$business_plans = array(
-			'jetpack_business',
-			'jetpack_business_monthly',
-			'business-bundle',
-			'business-bundle-monthly',
-			'business-bundle-2y',
-			'ecommerce-bundle',
-			'ecommerce-bundle-monthly',
-			'ecommerce-bundle-2y',
-			'vip',
-		);
-
-		if ( in_array( $plan['product_slug'], $business_plans, true ) ) {
-			$supports[]    = 'akismet';
-			$supports[]    = 'recurring-payments';
-			$supports[]    = 'simple-payments';
-			$supports[]    = 'vaultpress';
-			$supports[]    = 'videopress';
-			$plan['class'] = 'business';
-		}
-
-		// get available features.
-		foreach ( Jetpack::get_available_modules() as $module_slug ) {
-			$module = Jetpack::get_module( $module_slug );
-			if ( ! isset( $module ) || ! is_array( $module ) ) {
-				continue;
-			}
-			if ( in_array( 'free', $module['plan_classes'], true ) || in_array( $plan['class'], $module['plan_classes'], true ) ) {
-				$supports[] = $module_slug;
-			}
-		}
-
-		$plan['supports'] = $supports;
-
-		self::$active_plan_cache = $plan;
-
-		return $plan;
+		return Current_Plan::get_minimum_plan_for_feature( $feature );
 	}
 
 	/**
 	 * Determine whether the active plan supports a particular feature
 	 *
-	 * @uses Jetpack_Plan::get()
+	 * @deprecated 12.3 use Automattic\Jetpack\Current_Plan::supports instead.
 	 *
 	 * @access public
 	 * @static
@@ -205,27 +134,8 @@ class Jetpack_Plan {
 	 * @return bool True if plan supports feature, false if not
 	 */
 	public static function supports( $feature ) {
-		$plan = self::get();
+		_deprecated_function( __METHOD__, '12.3', 'Automattic\Jetpack\Current_Plan::supports' );
 
-		// Manually mapping WordPress.com features to Jetpack module slugs.
-		foreach ( $plan['features']['active'] as $wpcom_feature ) {
-			switch ( $wpcom_feature ) {
-				case 'wordads-jetpack':
-					// WordAds are supported for this site.
-					if ( 'wordads' === $feature ) {
-						return true;
-					}
-					break;
-			}
-		}
-
-		if (
-			in_array( $feature, $plan['supports'], true )
-			|| in_array( $feature, $plan['features']['active'], true )
-		) {
-			return true;
-		}
-
-		return false;
+		return Current_Plan::supports( $feature );
 	}
 }

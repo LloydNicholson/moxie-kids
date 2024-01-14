@@ -2,6 +2,10 @@
  * Infinite scroll
  */
 
+#infinite-footer {
+	z-index: 1;
+}
+
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .pagination-wrapper,
 .infinite-scroll.neverending .footer-nav-widgets-wrapper,
@@ -16,8 +20,12 @@
 	display: block;
 }
 
+.infinity-end.neverending #site-footer {
+	margin: 8rem 0 0;
+}
+
 .infinite-loader {
-	margin: calc(3 * 1rem) auto;
+	margin: 5rem auto;
 }
 
 .infinite-loader .spinner {
@@ -26,7 +34,7 @@
 }
 
 #site-content #infinite-handle {
-	margin: 0 auto;
+	margin: 5rem auto;
 	max-width: 58rem;
 	width: calc(100% - 8rem);
 }
@@ -102,6 +110,7 @@
 
 /* Authors widget */
 .widget_authors ul {
+	list-style: none;
 	margin-left: 0;
 }
 
@@ -112,6 +121,11 @@
 
 .widget_authors li:first-child {
 	margin-top: 2rem;
+}
+
+/* Flickr */
+.widget_flickr .flickr-size-thumbnail .flickr-images  {
+	justify-content: left;
 }
 
 /* EU cookie law */
@@ -149,7 +163,71 @@
 	}
 }
 
+/* Subscriptions Widget */
+
+.jetpack_subscription_widget .widget-title label {
+	font-size: 2.8rem;
+	font-weight: 700;
+	margin: 0;
+}
+@media ( min-width: 700px ) {
+	.jetpack_subscription_widget .widget-title label {
+			font-size: 4rem;
+	}
+}
+
+/*
+ * This overwrites inline styles added to the wpcom widget,
+ * hence the use of !important
+ */
+.widget_blog_subscription form p:not(#subscribe-email) input[type="text"] {
+	padding: 1.5rem 1.8rem !important;
+	width: 100% !important;
+}
+
 /* Related Posts */
+
+.entry-content #jp-relatedposts {
+	max-width: 120rem;
+	margin: 1em auto;
+	width: calc(100% - 4rem);
+}
+
+@media (min-width: 700px) {
+	.entry-content #jp-relatedposts {
+		width: calc(100% - 8rem);
+	}
+}
+
+#jp-relatedposts .jp-relatedposts-grid {
+	display: flex;
+	flex-grow: 1;
+	flex-basis: 0;
+	justify-content: space-between;
+	box-sizing: border-box;
+}
+
+#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post,
+#jp-relatedposts .jp-relatedposts-post {
+	width: calc(33% - 2rem);
+	margin-left: 0;
+	margin-right: 0;
+}
+
+@media only screen and (max-width: 640px) {
+	#jp-relatedposts .jp-relatedposts-grid {
+		flex-direction: column;
+	}
+
+	#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post,
+	#jp-relatedposts .jp-relatedposts-post {
+		width: 100%;
+	}
+}
+
+#jp-relatedposts .jp-relatedposts-items-visual .jp-relatedposts-post  {
+	padding-right: 0;
+}
 
 #jp-relatedposts#jp-relatedposts .jp-relatedposts-items p,
 #jp-relatedposts#jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
@@ -157,7 +235,66 @@
 	line-height: 1.5;
 }
 
+#jp-relatedposts .jp-relatedposts-items-visual {
+	margin-right: 0;
+}
+
+#jp-relatedposts .jp-relatedposts-items-visual .jp-relatedposts-post img.jp-relatedposts-post-img {
+	width: 100%;
+}
+
+/* Tiled Galleries in Classic Blocks */
+.entry-content .tiled-gallery {
+	margin: 0 auto 1.5em;
+}
+
+/**
+ * Shortcodes
+ */
+
+/* Recipe */
+.entry-content .jetpack-recipe {
+	margin: 1em auto;
+}
+
+/* Facebook */
+.entry-content .fb-video {
+	display: block;
+}
+
+/**
+ * Blocks
+ */
+
 /* Related Posts Block */
 .jp-related-posts-i2__post li {
 	margin: 0;
+}
+
+/* GIF Block */
+.wp-block-jetpack-gif {
+	/* Uses !important because the gif block styles are loaded in the footer after this file */
+	margin: 1em auto !important;
+}
+
+/**
+ * Images
+ */
+
+/* Beautiful Math */
+.entry-content img.latex {
+	display: inline;
+}
+
+/**
+ * .com Toolbar
+ */
+
+/* fix site position when overflow nav modal  */
+.admin-bar {
+	position: unset !important;
+}
+
+.screen-reader-text {
+	position: absolute;
 }

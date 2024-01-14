@@ -2,7 +2,7 @@
 /**
  * Email Styles
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/emails/email-css.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/emails/email-styles.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -10,9 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates/Emails
- * @version 3.3.0
+ * @see     https://woo.com/document/template-structure/
+ * @package WooCommerce\Templates\Emails
+ * @version 7.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -40,19 +40,25 @@ $base_lighter_40 = wc_hex_lighter( $base, 40 );
 $text_lighter_20 = wc_hex_lighter( $text, 20 );
 $text_lighter_40 = wc_hex_lighter( $text, 40 );
 
-// !important; is a gmail hack to prevent css being stripped if it doesn't like something.
+// !important; is a gmail hack to prevent styles being stripped if it doesn't like something.
 // body{padding: 0;} ensures proper scale/positioning of the email in the iOS native email app.
 ?>
 body {
+	background-color: <?php echo esc_attr( $bg ); ?>;
 	padding: 0;
+	text-align: center;
+}
+
+#outer_wrapper {
+	background-color: <?php echo esc_attr( $bg ); ?>;
 }
 
 #wrapper {
-	background-color: <?php echo esc_attr( $bg ); ?>;
-	margin: 0;
+	margin: 0 auto;
 	padding: 70px 0;
 	-webkit-text-size-adjust: none !important;
 	width: 100%;
+	max-width: 600px;
 }
 
 #template_container {
@@ -76,6 +82,7 @@ body {
 #template_header h1,
 #template_header h1 a {
 	color: <?php echo esc_attr( $base_text ); ?>;
+	background-color: inherit;
 }
 
 #template_header_image img {
@@ -164,7 +171,7 @@ body {
 }
 
 .link {
-	color: <?php echo esc_attr( $base ); ?>;
+	color: <?php echo esc_attr( $link_color ); ?>;
 }
 
 #header_wrapper {
@@ -222,5 +229,25 @@ img {
 	text-transform: capitalize;
 	vertical-align: middle;
 	margin-<?php echo is_rtl() ? 'left' : 'right'; ?>: 10px;
+	max-width: 100%;
+}
+
+/**
+ * Media queries are not supported by all email clients, however they do work on modern mobile
+ * Gmail clients and can help us achieve better consistency there.
+ */
+@media screen and (max-width: 600px) {
+	#header_wrapper {
+		padding: 27px 36px !important;
+		font-size: 24px;
+	}
+
+	#body_content table > tbody > tr > td {
+		padding: 10px !important;
+	}
+
+	#body_content_inner {
+		font-size: 10px !important;
+	}
 }
 <?php

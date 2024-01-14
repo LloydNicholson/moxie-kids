@@ -4,20 +4,35 @@
  *
  * @since 7.1.0
  *
- * @package Jetpack
+ * @package automattic/jetpack
  */
 
-jetpack_register_block(
-	'jetpack/business-hours',
-	array( 'render_callback' => 'jetpack_business_hours_render' )
-);
+namespace Automattic\Jetpack\Extensions\Business_Hours;
+
+use Automattic\Jetpack\Blocks;
+use Jetpack_Gutenberg;
+
+/**
+ * Registers the block for use in Gutenberg
+ * This is done via an action so that we can disable
+ * registration if we need to.
+ */
+function register_block() {
+	Blocks::jetpack_register_block(
+		__DIR__,
+		array(
+			'render_callback' => __NAMESPACE__ . '\render',
+		)
+	);
+}
+add_action( 'init', __NAMESPACE__ . '\register_block' );
 
 /**
  * Get's default days / hours to render a business hour block with no data provided.
  *
  * @return array
  */
-function jetpack_business_hours_get_default_days() {
+function get_default_days() {
 	return array(
 		array(
 			'name'  => 'Sun',
@@ -82,18 +97,22 @@ function jetpack_business_hours_get_default_days() {
  *
  * @return string
  */
-function jetpack_business_hours_render( $attributes ) {
+function render( $attributes ) {
 	global $wp_locale;
 
 	if ( empty( $attributes['days'] ) || ! is_array( $attributes['days'] ) ) {
-		$attributes['days'] = jetpack_business_hours_get_default_days();
+		$attributes['days'] = get_default_days();
 	}
+
+	$wrapper_attributes = \WP_Block_Supports::get_instance()->apply_block_supports();
 
 	$start_of_week = (int) get_option( 'start_of_week', 0 );
 	$time_format   = get_option( 'time_format' );
 	$content       = sprintf(
-		'<dl class="jetpack-business-hours %s">',
-		! empty( $attributes['className'] ) ? esc_attr( $attributes['className'] ) : ''
+		'<dl class="jetpack-business-hours%s%s"%s>',
+		! empty( $attributes['className'] ) ? ' ' . esc_attr( $attributes['className'] ) : '',
+		! empty( $wrapper_attributes['class'] ) ? ' ' . esc_attr( $wrapper_attributes['class'] ) : '',
+		! empty( $wrapper_attributes['style'] ) ? ' style="' . esc_attr( $wrapper_attributes['style'] ) . '"' : ''
 	);
 
 	$days = array( 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' );
@@ -111,20 +130,20 @@ function jetpack_business_hours_render( $attributes ) {
 		$content   .= '<dd class="' . esc_attr( $day['name'] ) . '">';
 		$days_hours = '';
 
-		foreach ( $day['hours'] as $key => $hour ) {
+		foreach ( $day['hours'] as $hour ) {
 			$opening = strtotime( $hour['opening'] );
 			$closing = strtotime( $hour['closing'] );
 			if ( ! $opening || ! $closing ) {
 				continue;
 			}
-			$days_hours .= sprintf(
-				'%1$s - %2$s',
-				date( $time_format, $opening ),
-				date( $time_format, $closing )
-			);
-			if ( $key + 1 < count( $day['hours'] ) ) {
+			if ( $days_hours !== '' ) {
 				$days_hours .= ', ';
 			}
+			$days_hours .= sprintf(
+				'%1$s - %2$s',
+				gmdate( $time_format, $opening ),
+				gmdate( $time_format, $closing )
+			);
 		}
 
 		if ( empty( $days_hours ) ) {
@@ -136,7 +155,7 @@ function jetpack_business_hours_render( $attributes ) {
 
 	$content .= '</dl>';
 
-	Jetpack_Gutenberg::load_assets_as_required( 'business-hours' );
+	Jetpack_Gutenberg::load_assets_as_required( __DIR__ );
 
 	/**
 	 * Allows folks to filter the HTML content for the Business Hours block

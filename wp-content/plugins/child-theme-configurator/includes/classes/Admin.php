@@ -4,7 +4,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 /*
     Class: ChildThemeConfiguratorAdmin
-    Plugin URI: http://www.childthemeconfigurator.com/
+    Plugin URI: http://www.childthemeplugin.com/
     Description: Main Controller Class
     Author: Lilaea Media
     Author URI: http://www.lilaeamedia.com/
@@ -237,7 +237,7 @@ class ChildThemeConfiguratorAdmin {
              *
             if ( $this->get( 'max_sel' ) ):
                 $this->debug( 'Max selectors exceeded.', __FUNCTION__, __CLASS__, __CLASS__ );
-                //$this->errors[] = 26; //__( 'Maximum number of css exceeded.', 'child-theme-configurator' );
+                //$this->errors[] = 26; //__( 'Maximum number of styles exceeded.', 'child-theme-configurator' );
                 add_action( 'chld_thm_cfg_admin_notices', array( $this, 'max_styles_notice' ) ); 
             endif;
             */

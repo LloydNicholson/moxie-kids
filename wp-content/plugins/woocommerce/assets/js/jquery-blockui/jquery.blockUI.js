@@ -25,7 +25,7 @@
 		var msie = /MSIE/.test(navigator.userAgent);
 		var ie6  = /MSIE 6.0/.test(navigator.userAgent) && ! /MSIE 8.0/.test(navigator.userAgent);
 		var mode = document.documentMode || 0;
-		var setExpr = $.isFunction( document.createElement('div').style.setExpression );
+		var setExpr = 'function' === typeof document.createElement('div').style.setExpression ? document.createElement('div').style.setExpression : false;
 
 		// global $ methods for blocking/unblocking the entire page
 		$.blockUI   = function(opts) { install(window, opts); };
@@ -56,7 +56,7 @@
 
 			callBlock();
 			var nonmousedOpacity = $m.css('opacity');
-			$m.mouseover(function() {
+			$m.on( 'mouseover', function() {
 				callBlock({
 					fadeIn: 0,
 					timeout: 30000
@@ -65,7 +65,7 @@
 				var displayBlock = $('.blockMsg');
 				displayBlock.stop(); // cancel fadeout if it has started
 				displayBlock.fadeTo(300, 1); // make it easier to read the message by removing transparency
-			}).mouseout(function() {
+			}).on( 'mouseout', function() {
 				$('.blockMsg').fadeOut(1000);
 			});
 			// End konapun additions
@@ -118,7 +118,7 @@
 
 			theme: false, // set to true to use with jQuery UI themes
 
-			// css for the message when blocking; if you wish to disable
+			// styles for the message when blocking; if you wish to disable
 			// these and use an external stylesheet then do this in your code:
 			// $.blockUI.defaults.css = {};
 			css: {
@@ -141,7 +141,7 @@
 				left:	'35%'
 			},
 
-			// css for the overlay
+			// styles for the overlay
 			overlayCSS:  {
 				backgroundColor:	'#000',
 				opacity:			0.6,
@@ -152,7 +152,7 @@
 			// of lingering wait cursor
 			cursorReset: 'default',
 
-			// css applied when using $.growlUI
+			// styles applied when using $.growlUI
 			growlCSS: {
 				width:		'350px',
 				top:		'10px',
@@ -214,7 +214,7 @@
             // elements that can receive focus
             focusableElements: ':input:enabled:visible',
 
-			// suppresses the use of overlay css on FF/Linux (due to performance issues with opacity)
+			// suppresses the use of overlay styles on FF/Linux (due to performance issues with opacity)
 			// no longer needed in 2012
 			// applyPlatformOpacityRules: true,
 
@@ -550,9 +550,9 @@
 			// bind anchors and inputs for mouse and key events
 			var events = 'mousedown mouseup keydown keypress keyup touchstart touchend touchmove';
 			if (b)
-				$(document).bind(events, opts, handler);
+				$(document).on(events, opts, handler);
 			else
-				$(document).unbind(events, handler);
+				$(document).off(events, handler);
 
 		// former impl...
 		//		var $e = $('a,:input');
@@ -591,7 +591,7 @@
 				return;
 			var e = pageBlockEls[back===true ? pageBlockEls.length-1 : 0];
 			if (e)
-				e.focus();
+				e.trigger( 'focus' );
 		}
 
 		function center(el, x, y) {

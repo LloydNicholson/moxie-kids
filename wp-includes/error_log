@@ -1,0 +1,12 @@
+[23-Dec-2020 12:58:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home/du978g1l7yp8/public_html/wp-includes/class-oembed.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/du978g1l7yp8/public_html/wp-includes/class-oembed.php on line 12
+[24-Jan-2021 09:29:56 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/du978g1l7yp8/public_html/wp-includes/functions.php on line 8
+[24-Jan-2021 09:29:56 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/du978g1l7yp8/public_html/wp-includes/functions.php on line 8
+[24-Jan-2021 09:29:56 UTC] PHP Warning:  require(ABSPATHWPINC/option.php): failed to open stream: No such file or directory in /home/du978g1l7yp8/public_html/wp-includes/functions.php on line 8
+[24-Jan-2021 09:29:56 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/option.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/du978g1l7yp8/public_html/wp-includes/functions.php on line 8
+[07-Feb-2021 16:27:21 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/du978g1l7yp8/public_html/wp-includes/functions.php on line 8
+[07-Feb-2021 16:27:21 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/du978g1l7yp8/public_html/wp-includes/functions.php on line 8
+[07-Feb-2021 16:27:21 UTC] PHP Warning:  require(ABSPATHWPINC/option.php): failed to open stream: No such file or directory in /home/du978g1l7yp8/public_html/wp-includes/functions.php on line 8
+[07-Feb-2021 16:27:21 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/option.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/du978g1l7yp8/public_html/wp-includes/functions.php on line 8

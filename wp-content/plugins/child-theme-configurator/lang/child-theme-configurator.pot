@@ -193,7 +193,7 @@ msgstr ""
 
 #: includes/classes/UI.php:327
 msgid ""
-"<p>This makes it difficult for plugins to override these css. You can try "
+"<p>This makes it difficult for plugins to override these styles. You can try "
 "to resolve this using the  \"Repair header template\" option (Step 6, "
 "\"Additional handling options\", below).</p>"
 msgstr ""
@@ -218,7 +218,7 @@ msgstr ""
 
 #: includes/classes/UI.php:331
 msgid ""
-"<p>If you want to customize css using this plugin, please click "
+"<p>If you want to customize styles using this plugin, please click "
 "\"Configure Child Theme\" again to add this to the settings.</p>"
 msgstr ""
 
@@ -274,8 +274,8 @@ msgstr ""
 
 #: includes/classes/UI.php:341
 msgid ""
-"<p>Consider saving new custom css to a \"Separate stylesheet\" (see step "
-"5, below) so that you can customize these css.</p>"
+"<p>Consider saving new custom styles to a \"Separate stylesheet\" (see step "
+"5, below) so that you can customize these styles.</p>"
 msgstr ""
 
 #: includes/classes/UI.php:342
@@ -474,7 +474,7 @@ msgstr ""
 
 #: includes/forms/addl_panels.php:25
 msgid ""
-"Apply the power of CTC's top-rated interface to your site's plugin css. "
+"Apply the power of CTC's top-rated interface to your site's plugin styles. "
 "All new design makes it much easier to get the results you want."
 msgstr ""
 
@@ -497,7 +497,7 @@ msgid ""
 msgstr ""
 
 #: includes/forms/addl_panels.php:28
-msgid "Find related css"
+msgid "Find related styles"
 msgstr ""
 
 #: includes/forms/addl_panels.php:28
@@ -507,7 +507,7 @@ msgid ""
 msgstr ""
 
 #: includes/forms/addl_panels.php:29
-msgid "Find css by Nav Menu"
+msgid "Find styles by Nav Menu"
 msgstr ""
 
 #: includes/forms/addl_panels.php:29
@@ -694,7 +694,7 @@ msgid "Pack failed -- %s"
 msgstr ""
 
 #: includes/forms/errorstrings.php:34
-msgid "Maximum number of css exceeded."
+msgid "Maximum number of styles exceeded."
 msgstr ""
 
 #: includes/forms/errorstrings.php:35
@@ -887,7 +887,7 @@ msgstr ""
 
 #: includes/forms/notices.php:68
 msgid ""
-"<strong>However, some css could not be parsed due to memory limits.</"
+"<strong>However, some styles could not be parsed due to memory limits.</"
 "strong> Try deselecting \"Additional Stylesheets\" below and click "
 "\"Generate/Rebuild Child Theme Files\". %sWhy am I seeing this?%s"
 msgstr ""
@@ -1041,7 +1041,7 @@ msgid ""
 msgstr ""
 
 #: includes/forms/parent-child.php:182
-msgid "Select where to save new css:"
+msgid "Select where to save new styles:"
 msgstr ""
 
 #: includes/forms/parent-child.php:191
@@ -1050,7 +1050,7 @@ msgstr ""
 
 #: includes/forms/parent-child.php:194
 msgid ""
-"Save new custom css directly to the Child Theme primary stylesheet, "
+"Save new custom styles directly to the Child Theme primary stylesheet, "
 "replacing the existing values. The primary stylesheet will load in the order "
 "set by the theme."
 msgstr ""
@@ -1061,9 +1061,9 @@ msgstr ""
 
 #: includes/forms/parent-child.php:209
 msgid ""
-"Save new custom css to a separate stylesheet and combine any existing "
-"child theme css with the parent to form baseline. Select this option if "
-"you want to preserve the existing child theme css instead of overwriting "
+"Save new custom styles to a separate stylesheet and combine any existing "
+"child theme styles with the parent to form baseline. Select this option if "
+"you want to preserve the existing child theme styles instead of overwriting "
 "them. This option also allows you to customize stylesheets that load after "
 "the primary stylesheet."
 msgstr ""
@@ -1117,7 +1117,7 @@ msgstr ""
 
 #: includes/forms/parent-child.php:275
 msgid ""
-"Do not load or parse the parent theme css. Only use this option if the "
+"Do not load or parse the parent theme styles. Only use this option if the "
 "Child Theme uses a Framework like Genesis and uses <em>only child theme "
 "stylesheets</em> for its appearance."
 msgstr ""
@@ -1300,7 +1300,7 @@ msgstr ""
 
 #: includes/forms/query-selector.php:92
 msgid ""
-"Values entered here are merged into existing child css or added to the "
+"Values entered here are merged into existing child styles or added to the "
 "child stylesheet if they do not exist in the parent."
 msgstr ""
 
@@ -1455,7 +1455,7 @@ msgstr ""
 #. Description of the plugin/theme
 msgid ""
 "When using the Customizer is not enough - Create child themes and customize "
-"css, templates, functions and more."
+"styles, templates, functions and more."
 msgstr ""
 
 #. Author of the plugin/theme

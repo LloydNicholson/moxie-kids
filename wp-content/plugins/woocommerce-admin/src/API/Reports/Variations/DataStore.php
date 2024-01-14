@@ -1,8 +1,6 @@
 <?php
 /**
  * API\Reports\Variations\DataStore class file.
- *
- * @package WooCommerce Admin/Classes
  */
 
 namespace Automattic\WooCommerce\Admin\API\Reports\Variations;
@@ -80,7 +78,7 @@ class DataStore extends ReportsDataStore implements DataStoreInterface {
 	 * Assign report columns once full table name has been assigned.
 	 */
 	protected function assign_report_columns() {
-		$table_name = self::get_db_table_name();
+		$table_name           = self::get_db_table_name();
 		$this->report_columns = array(
 			'product_id'   => 'product_id',
 			'variation_id' => 'variation_id',
@@ -96,7 +94,7 @@ class DataStore extends ReportsDataStore implements DataStoreInterface {
 	 * @param array  $query_args Parameters supplied by the user.
 	 * @param string $arg_name   Target of the JOIN sql param.
 	 */
-	protected function get_from_sql_params( $query_args, $arg_name ) {
+	protected function add_from_sql_params( $query_args, $arg_name ) {
 		global $wpdb;
 
 		if ( 'sku' !== $query_args['orderby'] ) {
@@ -118,18 +116,18 @@ class DataStore extends ReportsDataStore implements DataStoreInterface {
 	 *
 	 * @param array $query_args Query arguments supplied by the user.
 	 */
-	protected function get_sql_query_params( $query_args ) {
+	protected function add_sql_query_params( $query_args ) {
 		global $wpdb;
 		$order_product_lookup_table = self::get_db_table_name();
 
-		$this->get_time_period_sql_params( $query_args, $order_product_lookup_table );
+		$this->add_time_period_sql_params( $query_args, $order_product_lookup_table );
 		$this->get_limit_sql_params( $query_args );
-		$this->get_order_by_sql_params( $query_args );
+		$this->add_order_by_sql_params( $query_args );
 
 		if ( count( $query_args['variations'] ) > 0 ) {
-			$this->get_from_sql_params( $query_args, 'outer' );
+			$this->add_from_sql_params( $query_args, 'outer' );
 		} else {
-			$this->get_from_sql_params( $query_args, 'inner' );
+			$this->add_from_sql_params( $query_args, 'inner' );
 		}
 
 		$included_products = $this->get_included_products( $query_args );
@@ -178,26 +176,32 @@ class DataStore extends ReportsDataStore implements DataStoreInterface {
 			$extended_info = new \ArrayObject();
 			if ( $query_args['extended_info'] ) {
 				$extended_attributes = apply_filters( 'woocommerce_rest_reports_variations_extended_attributes', $this->extended_attributes, $product_data );
-				$product             = wc_get_product( $product_data['product_id'] );
-				$variations          = array();
+				$parent_product      = wc_get_product( $product_data['product_id'] );
+				$attributes          = array();
 
 				// Base extended info off the parent variable product if the variation ID is 0.
 				// This is caused by simple products with prior sales being converted into variable products.
 				// See: https://github.com/woocommerce/woocommerce-admin/issues/2719.
 				$variation_id      = (int) $product_data['variation_id'];
-				$variation_product = ( 0 === $variation_id ) ? $product : wc_get_product( $variation_id );
-				$attributes        = array();
+				$variation_product = ( 0 === $variation_id ) ? $parent_product : wc_get_product( $variation_id );
+
+				// Fall back to the parent product if the variation can't be found.
+				$extended_attributes_product = is_a( $variation_product, 'WC_Product' ) ? $variation_product : $parent_product;
 
 				foreach ( $extended_attributes as $extended_attribute ) {
 					$function = 'get_' . $extended_attribute;
-					if ( is_callable( array( $variation_product, $function ) ) ) {
-						$value                                = $variation_product->{$function}();
+					if ( is_callable( array( $extended_attributes_product, $function ) ) ) {
+						$value                                = $extended_attributes_product->{$function}();
 						$extended_info[ $extended_attribute ] = $value;
 					}
 				}
 
 				// If this is a variation, add its attributes.
-				if ( 0 < $variation_id ) {
+				// NOTE: We don't fall back to the parent product here because it will include all possible attribute options.
+				if (
+					0 < $variation_id &&
+					is_callable( array( $variation_product, 'get_variation_attributes' ) )
+				) {
 					$variation_attributes = $variation_product->get_variation_attributes();
 
 					foreach ( $variation_attributes as $attribute_name => $attribute ) {
@@ -270,7 +274,7 @@ class DataStore extends ReportsDataStore implements DataStoreInterface {
 
 			$included_products = $this->get_included_products_array( $query_args );
 
-			$this->get_sql_query_params( $query_args );
+			$this->add_sql_query_params( $query_args );
 			$params = $this->get_limit_params( $query_args );
 			if ( count( $included_products ) > 0 && count( $query_args['variations'] ) > 0 ) {
 				$this->subquery->add_sql_clause( 'select', $this->selected_columns( $query_args ) );

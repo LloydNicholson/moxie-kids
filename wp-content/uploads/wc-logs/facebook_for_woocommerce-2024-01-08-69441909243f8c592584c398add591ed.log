@@ -1,0 +1,1794 @@
+01-08-2024 @ 02:09:28 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.63467s
+
+01-08-2024 @ 02:09:28 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":16,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AFc4LR2im37336Z-DBk4m_R
+    [x-fb-trace-id] => AKym042Ha7B
+    [x-fb-rev] => 1010703826
+    [x-fb-debug] => zgsh3vojyOdxOHSMK0wGmNVYeP2EKZpTzUFU5E+xufz+b/Ij+iHKtdqaBFVgdl1gF3oIz4EXL1SQBtQqb6SR5w==
+    [date] => Mon, 08 Jan 2024 00:09:28 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 02:09:28 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.63744s
+
+01-08-2024 @ 02:09:28 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":16,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AAlihSgNhXaqVBImDfNMn_K
+    [x-fb-trace-id] => D+dKrGKzFEP
+    [x-fb-rev] => 1010703826
+    [x-fb-debug] => i6nOYVr5CLm0iooCi3NtXHhg1GA7hA+/lfOSKUgeAeMv0fl2BZoiimuTNqH9UmrICV/K81fk8kUhLU2lg0VS8Q==
+    [date] => Mon, 08 Jan 2024 00:09:28 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 02:09:30 - Generating a fresh product feed file
+01-08-2024 @ 02:09:30 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 02:09:30 - 582: No options for attribute_add-sibling
+01-08-2024 @ 02:09:30 - Product feed file generated
+01-08-2024 @ 02:09:30 - Generating a fresh product feed file
+01-08-2024 @ 02:09:30 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 02:09:31 - 582: No options for attribute_add-sibling
+01-08-2024 @ 02:09:31 - Product feed file generated
+01-08-2024 @ 02:27:47 - Generating a fresh product feed file
+01-08-2024 @ 02:27:47 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 02:27:47 - 582: No options for attribute_add-sibling
+01-08-2024 @ 02:27:47 - Product feed file generated
+01-08-2024 @ 02:27:47 - Generating a fresh product feed file
+01-08-2024 @ 02:27:47 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 02:27:47 - 582: No options for attribute_add-sibling
+01-08-2024 @ 02:27:47 - Product feed file generated
+01-08-2024 @ 03:20:11 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.28803s
+
+01-08-2024 @ 03:20:11 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":16,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AeHbuuD2L4dN9H0iWHwTqNU
+    [x-fb-trace-id] => HvcrrtYftVY
+    [x-fb-rev] => 1010704144
+    [x-fb-debug] => SNwwm7MttE9DgjKN9I6g8Ut+aoDTdSb62xWngO55L+cxbNNW+wRvvwaln7dFU0iPCSxhleYf7O6UT/tUjdKZLQ==
+    [date] => Mon, 08 Jan 2024 01:20:11 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 03:20:11 - Generating a fresh product feed file
+01-08-2024 @ 03:20:11 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 03:20:12 - 582: No options for attribute_add-sibling
+01-08-2024 @ 03:20:12 - Product feed file generated
+01-08-2024 @ 03:20:12 - Generating a fresh product feed file
+01-08-2024 @ 03:20:12 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 03:20:12 - 582: No options for attribute_add-sibling
+01-08-2024 @ 03:20:12 - Product feed file generated
+01-08-2024 @ 05:21:39 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.54365s
+
+01-08-2024 @ 05:21:39 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":15,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AaHeIDqSU7bzYJ8cfOqT_52
+    [x-fb-trace-id] => EVM8cY2heWE
+    [x-fb-rev] => 1010704343
+    [x-fb-debug] => x0LbUJI05vT7N4TessvP3DZEf4319fnJrkVK6harxIitNaBK1Zo5p+3/uc6DPRorTHULA7FCrffyJcJOW2rFPg==
+    [date] => Mon, 08 Jan 2024 03:21:39 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 05:21:39 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.56123s
+
+01-08-2024 @ 05:21:39 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":15,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AzGnl7e7ULCTf_SSRtzxzpF
+    [x-fb-trace-id] => ADWnYsfLDgM
+    [x-fb-rev] => 1010704568
+    [x-fb-debug] => mos9Y1zB7nE1lB4nRFKtOnzcU8C9lU15JB2xDxrrWKDqnGYLRGfoi9YQX4czMVEMsPdoU5FbuFgCkG1X3vkyxw==
+    [date] => Mon, 08 Jan 2024 03:21:39 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 05:21:41 - Generating a fresh product feed file
+01-08-2024 @ 05:21:41 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 05:21:41 - 582: No options for attribute_add-sibling
+01-08-2024 @ 05:21:41 - Product feed file generated
+01-08-2024 @ 05:21:41 - Generating a fresh product feed file
+01-08-2024 @ 05:21:41 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 05:21:41 - 582: No options for attribute_add-sibling
+01-08-2024 @ 05:21:41 - Product feed file generated
+01-08-2024 @ 07:30:51 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.44193s
+
+01-08-2024 @ 07:30:51 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":17,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => Ajn1WgiCGm8vlieCmU4fByk
+    [x-fb-trace-id] => DWjX+bOFEW/
+    [x-fb-rev] => 1010704876
+    [x-fb-debug] => rwvv4pg30VtjAfFKFEakQn6P9q81uyVBWMH1WIv7TrqM87/shN2dITEL0v4aCyDl4lPiysnaI0L9W/IAtfPPtg==
+    [date] => Mon, 08 Jan 2024 05:30:51 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 07:30:52 - Generating a fresh product feed file
+01-08-2024 @ 07:30:52 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 07:30:52 - 582: No options for attribute_add-sibling
+01-08-2024 @ 07:30:52 - Product feed file generated
+01-08-2024 @ 07:30:52 - Generating a fresh product feed file
+01-08-2024 @ 07:30:52 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 07:30:52 - 582: No options for attribute_add-sibling
+01-08-2024 @ 07:30:52 - Product feed file generated
+01-08-2024 @ 07:45:53 - Generating a fresh product feed file
+01-08-2024 @ 07:45:53 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 07:45:53 - 582: No options for attribute_add-sibling
+01-08-2024 @ 07:45:53 - Product feed file generated
+01-08-2024 @ 07:45:53 - Generating a fresh product feed file
+01-08-2024 @ 07:45:53 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 07:45:53 - 582: No options for attribute_add-sibling
+01-08-2024 @ 07:45:54 - Product feed file generated
+01-08-2024 @ 08:47:10 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.38775s
+
+01-08-2024 @ 08:47:10 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":16,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => A2eVxvHCiW-_0k203J0cIbm
+    [x-fb-trace-id] => Cfd0qNmLfZL
+    [x-fb-rev] => 1010705129
+    [x-fb-debug] => e9wDvu8edBbSanTZ42kpnQ9/+2pE0azGQ3vnL7Immh3YTdWkcBImTJZD42lGDy9FnYoJUbmZXZiaYni3+7OfhA==
+    [date] => Mon, 08 Jan 2024 06:47:10 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 08:47:10 - Generating a fresh product feed file
+01-08-2024 @ 08:47:10 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 08:47:10 - 582: No options for attribute_add-sibling
+01-08-2024 @ 08:47:10 - Product feed file generated
+01-08-2024 @ 08:47:10 - Generating a fresh product feed file
+01-08-2024 @ 08:47:10 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 08:47:10 - 582: No options for attribute_add-sibling
+01-08-2024 @ 08:47:10 - Product feed file generated
+01-08-2024 @ 09:02:47 - Generating a fresh product feed file
+01-08-2024 @ 09:02:47 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 09:02:47 - 582: No options for attribute_add-sibling
+01-08-2024 @ 09:02:47 - Product feed file generated
+01-08-2024 @ 09:02:47 - Generating a fresh product feed file
+01-08-2024 @ 09:02:47 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 09:02:47 - 582: No options for attribute_add-sibling
+01-08-2024 @ 09:02:47 - Product feed file generated
+01-08-2024 @ 09:33:51 - Generating a fresh product feed file
+01-08-2024 @ 09:33:51 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 09:33:51 - 582: No options for attribute_add-sibling
+01-08-2024 @ 09:33:51 - Product feed file generated
+01-08-2024 @ 09:33:51 - Generating a fresh product feed file
+01-08-2024 @ 09:33:51 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 09:33:51 - 582: No options for attribute_add-sibling
+01-08-2024 @ 09:33:51 - Product feed file generated
+01-08-2024 @ 09:48:43 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.42413s
+
+01-08-2024 @ 09:48:43 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":17,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => A_9DBdrhVfGvvDOpklvGTOE
+    [x-fb-trace-id] => EOgQucABM9N
+    [x-fb-rev] => 1010705129
+    [x-fb-debug] => Nw/Z/oZlcBJpUVlYRcr4lUlUZXgV+Wu/heDF8OGaoemfSFW2Bs4xBhvNtQIWsOOsyNHpEBRaEZZst9C/GrNLtQ==
+    [date] => Mon, 08 Jan 2024 07:48:43 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 09:48:43 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.43023s
+
+01-08-2024 @ 09:48:43 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":17,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AY-8wCXtCgEs0646pvB2hzI
+    [x-fb-trace-id] => BtNLDLQWuR3
+    [x-fb-rev] => 1010705129
+    [x-fb-debug] => HN9vu5GSEncLTQ618YwNUGWtQ/RbMApGQukHdiNK47sJgU/7PwBHGVwI2U1uSUsjCRpkWtg2cUCb080eFvpQVA==
+    [date] => Mon, 08 Jan 2024 07:48:43 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 09:49:09 - Generating a fresh product feed file
+01-08-2024 @ 09:49:09 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 09:49:09 - 582: No options for attribute_add-sibling
+01-08-2024 @ 09:49:09 - Product feed file generated
+01-08-2024 @ 09:49:09 - Generating a fresh product feed file
+01-08-2024 @ 09:49:09 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 09:49:09 - 582: No options for attribute_add-sibling
+01-08-2024 @ 09:49:09 - Product feed file generated
+01-08-2024 @ 09:49:10 - Request
+Request
+method: POST
+uri: https://graph.facebook.com/v7.0/802928360279759/events
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body: {"data":[{"event_time":1704700150,"event_id":"360748f1-f4b6-404f-9a56-4d8ac1b7f3f8","event_source_url":"https:\/\/www.moxiekids.co.za\/product\/6-box-prepay\/","custom_data":{"content_name":"6 BOX PREPAY SUBSCRIPTION","content_ids":"[\"sub-003_615\"]","content_type":"product_group","contents":"[{\"id\":\"sub-003_615\",\"quantity\":1}]","content_category":"Subscription","value":"0","currency":"ZAR"},"user_data":{"client_ip_address":"119.234.8.188","client_user_agent":"Mozilla\/5.0 (iPhone; CPU iPhone OS 17_2_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/17.2 Mobile\/15E148 Safari\/604.1","fbc":"","fbp":"fb.2.1704700127247.697808578"},"event_name":"ViewContent"}],"partner_agent":"woocommerce-4.7.4-2.2.0"}
+duration: 0.36858s
+
+01-08-2024 @ 09:49:10 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-type] => application/json
+    [vary] => Origin
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":17,"total_cputime":0,"total_time":3}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AG92Hm_2CQWv2T4HTM8UgH3
+    [x-fb-trace-id] => A46G9xbk2Po
+    [x-fb-rev] => 1010705129
+    [x-fb-debug] => 5ghr9G9hY2a2w+G53kPtOQq0rgL/TNSELewIlrM8CjDCdHsIH2pcii0+z+rKwGZWvGn5QHpO7Dx/J9dzs99iwg==
+    [date] => Mon, 08 Jan 2024 07:49:10 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 74
+)
+body: {"events_received":1,"messages":[],"fbtrace_id":"AG92Hm_2CQWv2T4HTM8UgH3"}
+
+01-08-2024 @ 10:11:37 - Generating a fresh product feed file
+01-08-2024 @ 10:11:37 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 10:11:37 - 582: No options for attribute_add-sibling
+01-08-2024 @ 10:11:37 - Product feed file generated
+01-08-2024 @ 10:11:37 - Generating a fresh product feed file
+01-08-2024 @ 10:11:37 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 10:11:37 - 582: No options for attribute_add-sibling
+01-08-2024 @ 10:11:37 - Product feed file generated
+01-08-2024 @ 11:04:07 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.3823s
+
+01-08-2024 @ 11:04:07 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => A1nHgShF65oC26k6dgr24fP
+    [x-fb-trace-id] => ELUpxMELrne
+    [x-fb-rev] => 1010705478
+    [x-fb-debug] => 6oKVVbIlM75rGZZnEQFQyR2ms8XgKIXH5FZCdNJWGifjrfTSwra8qRtIyefcvNILJK5w/nlU/FS4OsPhmTpBgw==
+    [date] => Mon, 08 Jan 2024 09:04:07 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 11:04:07 - Generating a fresh product feed file
+01-08-2024 @ 11:04:08 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 11:04:08 - 582: No options for attribute_add-sibling
+01-08-2024 @ 11:04:08 - Product feed file generated
+01-08-2024 @ 11:04:08 - Generating a fresh product feed file
+01-08-2024 @ 11:04:08 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 11:04:08 - 582: No options for attribute_add-sibling
+01-08-2024 @ 11:04:08 - Product feed file generated
+01-08-2024 @ 11:29:50 - Generating a fresh product feed file
+01-08-2024 @ 11:29:50 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 11:29:50 - 582: No options for attribute_add-sibling
+01-08-2024 @ 11:29:50 - Product feed file generated
+01-08-2024 @ 11:29:50 - Generating a fresh product feed file
+01-08-2024 @ 11:29:50 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 11:29:50 - 582: No options for attribute_add-sibling
+01-08-2024 @ 11:29:50 - Product feed file generated
+01-08-2024 @ 13:17:47 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.58824s
+
+01-08-2024 @ 13:17:47 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AbqeMqAjvTV0XT8S0-Gq_IV
+    [x-fb-trace-id] => GLAmiyIxy4l
+    [x-fb-rev] => 1010706184
+    [x-fb-debug] => nMeHnpG96ShCdjdhBwb8GyyV3gbn/hXcbUORwvMT+71B4qBdyVMhG0Au3S93gqrdBF2+v7uK04Z5jm442hQVtw==
+    [date] => Mon, 08 Jan 2024 11:17:47 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 13:17:47 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.63606s
+
+01-08-2024 @ 13:17:47 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => A1w1jv8q5xf3styDXCg-qtV
+    [x-fb-trace-id] => AmDo+vlkXOi
+    [x-fb-rev] => 1010706184
+    [x-fb-debug] => LmPmPWwE9yFo7AiBabhnzZaB14Skczx7Fkadx5Xov1x9oHJ9/Tx84Kc5fenZlGQ5M2DKnTp2AHToAn6XsQaHRA==
+    [date] => Mon, 08 Jan 2024 11:17:47 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 13:17:50 - Generating a fresh product feed file
+01-08-2024 @ 13:17:50 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 13:17:50 - 582: No options for attribute_add-sibling
+01-08-2024 @ 13:17:50 - Product feed file generated
+01-08-2024 @ 13:17:50 - Generating a fresh product feed file
+01-08-2024 @ 13:17:50 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 13:17:50 - 582: No options for attribute_add-sibling
+01-08-2024 @ 13:17:50 - Product feed file generated
+01-08-2024 @ 13:35:36 - Generating a fresh product feed file
+01-08-2024 @ 13:35:36 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 13:35:36 - 582: No options for attribute_add-sibling
+01-08-2024 @ 13:35:36 - Product feed file generated
+01-08-2024 @ 13:35:36 - Generating a fresh product feed file
+01-08-2024 @ 13:35:36 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 13:35:37 - 582: No options for attribute_add-sibling
+01-08-2024 @ 13:35:37 - Product feed file generated
+01-08-2024 @ 14:02:43 - Generating a fresh product feed file
+01-08-2024 @ 14:02:43 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 14:02:43 - 582: No options for attribute_add-sibling
+01-08-2024 @ 14:02:43 - Product feed file generated
+01-08-2024 @ 14:02:43 - Generating a fresh product feed file
+01-08-2024 @ 14:02:43 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 14:02:44 - 582: No options for attribute_add-sibling
+01-08-2024 @ 14:02:44 - Product feed file generated
+01-08-2024 @ 14:43:59 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.64298s
+
+01-08-2024 @ 14:43:59 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AktwRHV8Gcy3xThCm8NVJRw
+    [x-fb-trace-id] => EK/00kiBdF7
+    [x-fb-rev] => 1010706184
+    [x-fb-debug] => ytnZsXemebKEfjsBdxMsjBDkp49ZjE4SM+RRkS5PpsS4nFuTG6bNEhNouDPws4vdNwMF+nPu4F7Sz4ZiOKq8ew==
+    [date] => Mon, 08 Jan 2024 12:43:59 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 14:43:59 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.41251s
+
+01-08-2024 @ 14:43:59 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => A2bxlW7fvqOdritk3UCixv1
+    [x-fb-trace-id] => H7iabdVfsl/
+    [x-fb-rev] => 1010706184
+    [x-fb-debug] => 6VSmPywbdhPfxGgH4E+XEOgIvtnchQMQHLAXUzSvGiaIcgDrUMDzPKFCKERILDfHGK6h0zi3lMnCRNzEr/DlXw==
+    [date] => Mon, 08 Jan 2024 12:43:59 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 14:43:59 - Generating a fresh product feed file
+01-08-2024 @ 14:43:59 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 14:43:59 - 582: No options for attribute_add-sibling
+01-08-2024 @ 14:43:59 - Product feed file generated
+01-08-2024 @ 14:43:59 - Generating a fresh product feed file
+01-08-2024 @ 14:43:59 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 14:44:00 - 582: No options for attribute_add-sibling
+01-08-2024 @ 14:44:00 - Product feed file generated
+01-08-2024 @ 15:18:39 - Generating a fresh product feed file
+01-08-2024 @ 15:18:40 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 15:18:40 - 582: No options for attribute_add-sibling
+01-08-2024 @ 15:18:40 - Product feed file generated
+01-08-2024 @ 15:18:40 - Generating a fresh product feed file
+01-08-2024 @ 15:18:40 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 15:18:40 - 582: No options for attribute_add-sibling
+01-08-2024 @ 15:18:40 - Product feed file generated
+01-08-2024 @ 15:36:44 - Generating a fresh product feed file
+01-08-2024 @ 15:36:44 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 15:36:44 - 582: No options for attribute_add-sibling
+01-08-2024 @ 15:36:44 - Product feed file generated
+01-08-2024 @ 15:36:44 - Generating a fresh product feed file
+01-08-2024 @ 15:36:44 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 15:36:44 - 582: No options for attribute_add-sibling
+01-08-2024 @ 15:36:44 - Product feed file generated
+01-08-2024 @ 15:49:29 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.32996s
+
+01-08-2024 @ 15:49:29 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AJ3H1zAG2a0V0ggLClP4NdT
+    [x-fb-trace-id] => BMg/878So4b
+    [x-fb-rev] => 1010706712
+    [x-fb-debug] => mggemNRLzl4BNcIga0EGrBmJK7eRfB7esMpzEo8EudO64r/qCSr8FqMXtG/0eyfC1mOxNyDcVBGgSDaB4r1VbA==
+    [date] => Mon, 08 Jan 2024 13:49:29 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 16:13:26 - Generating a fresh product feed file
+01-08-2024 @ 16:13:26 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 16:13:26 - 582: No options for attribute_add-sibling
+01-08-2024 @ 16:13:26 - Product feed file generated
+01-08-2024 @ 16:13:26 - Generating a fresh product feed file
+01-08-2024 @ 16:13:26 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 16:13:27 - 582: No options for attribute_add-sibling
+01-08-2024 @ 16:13:27 - Product feed file generated
+01-08-2024 @ 16:30:25 - Generating a fresh product feed file
+01-08-2024 @ 16:30:25 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 16:30:26 - 582: No options for attribute_add-sibling
+01-08-2024 @ 16:30:26 - Product feed file generated
+01-08-2024 @ 16:30:26 - Generating a fresh product feed file
+01-08-2024 @ 16:30:26 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 16:30:26 - 582: No options for attribute_add-sibling
+01-08-2024 @ 16:30:26 - Product feed file generated
+01-08-2024 @ 16:48:11 - Generating a fresh product feed file
+01-08-2024 @ 16:48:11 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 16:48:11 - 582: No options for attribute_add-sibling
+01-08-2024 @ 16:48:11 - Product feed file generated
+01-08-2024 @ 16:48:11 - Generating a fresh product feed file
+01-08-2024 @ 16:48:11 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 16:48:12 - 582: No options for attribute_add-sibling
+01-08-2024 @ 16:48:12 - Product feed file generated
+01-08-2024 @ 17:07:10 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.41974s
+
+01-08-2024 @ 17:07:10 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => Awa3C2wuMUhidHHr3YpR6GN
+    [x-fb-trace-id] => HnhaPt4MkqP
+    [x-fb-rev] => 1010707716
+    [x-fb-debug] => KC55XQTqU2x3l/CEojJtEX1gzuAV5lpv0X6cAI2J6S2DXWLNeF5AJWpFoIeOQTaLbO17RVWq24szKfQDlYAT4Q==
+    [date] => Mon, 08 Jan 2024 15:07:10 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 17:07:10 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.69002s
+
+01-08-2024 @ 17:07:10 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => Au2SFdApadhG7IFbmyY_S6o
+    [x-fb-trace-id] => GSV2anPcmDy
+    [x-fb-rev] => 1010707716
+    [x-fb-debug] => 8E0VFhFh66zDATEUWoOb9+TLYSQTl8uocOsXy9BBVxRSEuAPy7Phxksb5dEQvmQSSYGqMvhSUPbZclk8GCVBoQ==
+    [date] => Mon, 08 Jan 2024 15:07:10 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 17:07:10 - Generating a fresh product feed file
+01-08-2024 @ 17:07:10 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 17:07:11 - 582: No options for attribute_add-sibling
+01-08-2024 @ 17:07:11 - Product feed file generated
+01-08-2024 @ 17:07:11 - Generating a fresh product feed file
+01-08-2024 @ 17:07:11 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 17:07:11 - 582: No options for attribute_add-sibling
+01-08-2024 @ 17:07:11 - Product feed file generated
+01-08-2024 @ 18:52:06 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.56484s
+
+01-08-2024 @ 18:52:06 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AWF29umbsnfeRCPZKdj24bI
+    [x-fb-trace-id] => EDSm1jYSa9p
+    [x-fb-rev] => 1010707716
+    [x-fb-debug] => dl0DCCPa++YUDNq3ogk5HNmZDnDTyIzGeeiJ0qP95gMXuJ9KC9/cW6rts+Rwe44UgCvlYOX7sJCbWIRvNKYBOw==
+    [date] => Mon, 08 Jan 2024 16:52:06 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 18:52:06 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.56927s
+
+01-08-2024 @ 18:52:06 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AKET-E4rMWcbSaemJLs6r-7
+    [x-fb-trace-id] => CzOZXYF8exx
+    [x-fb-rev] => 1010707716
+    [x-fb-debug] => AcAMecFuYUH0AcUq6qssLe3NaffMFopFUWgELfPkEnHiDypzmo5MBWnS5HdzuovYLJXk6ydbNH4igayfQS/IgA==
+    [date] => Mon, 08 Jan 2024 16:52:06 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 18:52:07 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.50647s
+
+01-08-2024 @ 18:52:07 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AZc38BtHjZfBc2cdgYEHi3f
+    [x-fb-trace-id] => G4khj1D+Uqi
+    [x-fb-rev] => 1010707716
+    [x-fb-debug] => fzADLuk8rKNGg1I4TXSru8SNCNbwicamiu59dKwlTBiSKBQ21PjaGIiJCpsc6+6MQpRysAq+mlHiyvBNTN3fCw==
+    [date] => Mon, 08 Jan 2024 16:52:07 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 18:52:07 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.28542s
+
+01-08-2024 @ 18:52:07 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AUJFAi3478FK2FwdBpQkTwV
+    [x-fb-trace-id] => FLVgXJloDRP
+    [x-fb-rev] => 1010707716
+    [x-fb-debug] => I2yFuRSGUXNewADvWvhbd9iF9RCXVVlHtZ9FyXc4UbctH8gGsW8J1Jb92181V6/GR7U90lecHFIB+m5c6iZTDg==
+    [date] => Mon, 08 Jan 2024 16:52:07 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 18:52:07 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.32311s
+
+01-08-2024 @ 18:52:07 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => Agd9cr-mu_SGQWneSU_yX4S
+    [x-fb-trace-id] => D9zJQdCWcF2
+    [x-fb-rev] => 1010707716
+    [x-fb-debug] => pzRctZQ008PbHBRUX2vQnQt4jgSpXyq252JSWVcL9WtpHPb+nxpUyLQk12fckPbJbAJQ03eLPxKjZfW5+MxIcA==
+    [date] => Mon, 08 Jan 2024 16:52:07 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 18:52:07 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.32462s
+
+01-08-2024 @ 18:52:07 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => Ash-oEgQ-GTiesp6uKPkoKu
+    [x-fb-trace-id] => DXWEc+52BYA
+    [x-fb-rev] => 1010707716
+    [x-fb-debug] => I4RfaEO+QmGs47LCnU35WSakUoU8Cj/8plANf39mAdIQglLIbiTaWa2cwI8jUKp0wKASBXW8JldoqiZfSKdKbQ==
+    [date] => Mon, 08 Jan 2024 16:52:07 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 18:52:07 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.37098s
+
+01-08-2024 @ 18:52:07 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AXu41jqJWj1V0WrtOJNgrxZ
+    [x-fb-trace-id] => GV8Xg85PC+4
+    [x-fb-rev] => 1010707716
+    [x-fb-debug] => CtX/ijERqKy6lER3bg/SYpLxdq4D9sMN9Jae0/+EO6tqJ6/74lxD797t9i/hmq2NO6qLLjOtSkYMQKtThOAi0w==
+    [date] => Mon, 08 Jan 2024 16:52:07 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 18:52:08 - Generating a fresh product feed file
+01-08-2024 @ 18:52:09 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 18:52:09 - 582: No options for attribute_add-sibling
+01-08-2024 @ 18:52:09 - Product feed file generated
+01-08-2024 @ 18:52:09 - Generating a fresh product feed file
+01-08-2024 @ 18:52:09 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 18:52:09 - 582: No options for attribute_add-sibling
+01-08-2024 @ 18:52:09 - Product feed file generated
+01-08-2024 @ 19:50:46 - Generating a fresh product feed file
+01-08-2024 @ 19:50:46 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 19:50:46 - 582: No options for attribute_add-sibling
+01-08-2024 @ 19:50:46 - Product feed file generated
+01-08-2024 @ 19:50:47 - Generating a fresh product feed file
+01-08-2024 @ 19:50:47 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 19:50:47 - 582: No options for attribute_add-sibling
+01-08-2024 @ 19:50:47 - Product feed file generated
+01-08-2024 @ 20:03:20 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.41406s
+
+01-08-2024 @ 20:03:20 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":17,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AQtTQC53htachOQ7KTfJ8jG
+    [x-fb-trace-id] => EWIucLawMIl
+    [x-fb-rev] => 1010709764
+    [x-fb-debug] => PSeLYshauyJ03vhlU/8r+STsnDkNDrhKOpxeKF03SLe6aJGYgsbpn0r3NWna7T+5xiTe6SSwLA1C5AK7tHp/aQ==
+    [date] => Mon, 08 Jan 2024 18:03:20 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 21:01:54 - Generating a fresh product feed file
+01-08-2024 @ 21:01:54 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 21:01:54 - 582: No options for attribute_add-sibling
+01-08-2024 @ 21:01:54 - Product feed file generated
+01-08-2024 @ 21:01:54 - Generating a fresh product feed file
+01-08-2024 @ 21:01:54 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 21:01:54 - 582: No options for attribute_add-sibling
+01-08-2024 @ 21:01:54 - Product feed file generated
+01-08-2024 @ 21:37:43 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.61836s
+
+01-08-2024 @ 21:37:43 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":17,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => A6Mg-qfCRrSFc5jHqXbyNJ4
+    [x-fb-trace-id] => DOvtcHCC+Z0
+    [x-fb-rev] => 1010713309
+    [x-fb-debug] => DFzCqF7D5I6g+LrDQ2Nns5nDuoaN1hrYsWMfMGUpfkp+MkbZlGws3XFtbqNeUPru/lF5uB83Cu4UDoaY/yuRJw==
+    [date] => Mon, 08 Jan 2024 19:37:43 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 21:37:43 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.62348s
+
+01-08-2024 @ 21:37:43 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":17,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AoMBVpu9oNy508iWTnRUP8i
+    [x-fb-trace-id] => CsU9//xxuCa
+    [x-fb-rev] => 1010713309
+    [x-fb-debug] => e7IRIienas7BSGvTzfHwDmtTVWl0KCmb+XX5i77HH1MF1u+ELRDaVvc8zUvYvKy3JLVuaGFoSN0Bl5Mcoz5peg==
+    [date] => Mon, 08 Jan 2024 19:37:43 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 21:37:45 - Generating a fresh product feed file
+01-08-2024 @ 21:37:45 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 21:37:45 - 582: No options for attribute_add-sibling
+01-08-2024 @ 21:37:45 - Product feed file generated
+01-08-2024 @ 21:37:45 - Generating a fresh product feed file
+01-08-2024 @ 21:37:45 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 21:37:45 - 582: No options for attribute_add-sibling
+01-08-2024 @ 21:37:45 - Product feed file generated
+01-08-2024 @ 22:17:09 - Generating a fresh product feed file
+01-08-2024 @ 22:17:09 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 22:17:09 - 582: No options for attribute_add-sibling
+01-08-2024 @ 22:17:09 - Product feed file generated
+01-08-2024 @ 22:17:09 - Generating a fresh product feed file
+01-08-2024 @ 22:17:09 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 22:17:10 - 582: No options for attribute_add-sibling
+01-08-2024 @ 22:17:10 - Product feed file generated
+01-08-2024 @ 22:17:10 - Request
+Request
+method: POST
+uri: https://graph.facebook.com/v7.0/802928360279759/events
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body: {"data":[{"event_time":1704745030,"event_id":"c089e96a-aa01-4067-8e33-8d36a6d2e9a0","event_source_url":"https:\/\/www.moxiekids.co.za\/product\/3-box-prepay\/","custom_data":{"content_name":"3 BOX PREPAY SUBSCRIPTION","content_ids":"[\"sub-002_329\"]","content_type":"product_group","contents":"[{\"id\":\"sub-002_329\",\"quantity\":1}]","content_category":"Subscription","value":"0","currency":"ZAR"},"user_data":{"client_ip_address":"207.46.13.64","client_user_agent":"Mozilla\/5.0 AppleWebKit\/537.36 (KHTML, like Gecko; compatible; bingbot\/2.0; +http:\/\/www.bing.com\/bingbot.htm) Chrome\/116.0.1938.76 Safari\/537.36","fbc":"","fbp":""},"event_name":"ViewContent"}],"partner_agent":"woocommerce-4.7.4-2.2.0"}
+duration: 0.38697s
+
+01-08-2024 @ 22:17:10 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-type] => application/json
+    [vary] => Origin
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AaKP_OL57MzbkPD7keD0Awg
+    [x-fb-trace-id] => HJI9HR1Nm11
+    [x-fb-rev] => 1010713309
+    [x-fb-debug] => EK4hI2lQ5EQ3xCPXDomLtC+vpRZw8RbFO6/uHYvFmEG7x2zOUBQUd2ZH7/HPbEXKAqUvcypAJMpvg5MzfcLfsQ==
+    [date] => Mon, 08 Jan 2024 20:17:10 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 74
+)
+body: {"events_received":1,"messages":[],"fbtrace_id":"AaKP_OL57MzbkPD7keD0Awg"}
+
+01-08-2024 @ 22:17:12 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business/fbe_installs?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.50707s
+
+01-08-2024 @ 22:17:12 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "8e898697712b6ad007e158ded105f6ed679778d8"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AnhXsjEl6QvygoEQmcZbAVN
+    [x-fb-trace-id] => CNPAQz9aPCT
+    [x-fb-rev] => 1010713309
+    [x-fb-debug] => W7V7tggGIRoADQMnDMyiOM7FCewazwmJU43wEJHXMnsb6PR8npQ0FlujgalV1XYm1Hs1opoNgxSVwdX0NV5KSw==
+    [date] => Mon, 08 Jan 2024 20:17:12 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 383
+)
+body: {"data":[{"business_manager_id":"632095890667700","onsite_eligible":false,"pixel_id":"802928360279759","profiles":["1185511558286402","17841400330174035"],"ad_account_id":"0","catalog_id":"814690432663295","pages":["1185511558286402"],"instagram_profiles":["17841400330174035"],"ig_shop":{"status":"NOT_SUBMITTED"},"token_type":"User","installed_features":[{"feature_instance_id":"4411610415614632","feature_type":"catalog","connected_assets":{"catalog_id":"814690432663295","ig_profile_id":"17841400330174035","page_id":"1185511558286402","pixel_id":"802928360279759"},"additional_info":{"onsite_eligible":false,"pixel_is_consolidated_container":true}},{"feature_instance_id":"1494650977585068","feature_type":"pixel","connected_assets":{"ig_profile_id":"17841400330174035","page_id":"1185511558286402","pixel_id":"802928360279759"},"additional_info":{"onsite_eligible":false,"pixel_is_consolidated_container":true}}]}]}
+
+01-08-2024 @ 22:17:12 - Retrieving page access token
+01-08-2024 @ 22:44:46 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.63123s
+
+01-08-2024 @ 22:44:46 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AdbAiT71vtqoW22PskrSvQI
+    [x-fb-trace-id] => HHuaLDH6nOc
+    [x-fb-rev] => 1010713309
+    [x-fb-debug] => +P34AsgfO/bCTprH45Pcm4zHVu72qWeDG8bK0DFWFEp/uCyaqa6n77lEambnlJ85J9gcAtLi/UK3os/Sq2gVRg==
+    [date] => Mon, 08 Jan 2024 20:44:46 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 22:44:46 - Generating a fresh product feed file
+01-08-2024 @ 22:44:46 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.38067s
+
+01-08-2024 @ 22:44:46 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":18,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => AgfV-9v4KN4XDShdQ7I_3q9
+    [x-fb-trace-id] => Ab1YKOw+uT3
+    [x-fb-rev] => 1010713309
+    [x-fb-debug] => iW2BTmJJKOci+HSj2FzitToXz+mbSVBxmsxnvnzBWwfuujFdgLt+H9txn/cpdEqYIjuajG7pXQGZIOFITZKMxw==
+    [date] => Mon, 08 Jan 2024 20:44:46 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-08-2024 @ 22:44:46 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 22:44:46 - 582: No options for attribute_add-sibling
+01-08-2024 @ 22:44:46 - Product feed file generated
+01-08-2024 @ 22:44:46 - Generating a fresh product feed file
+01-08-2024 @ 22:44:46 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 22:44:46 - 582: No options for attribute_add-sibling
+01-08-2024 @ 22:44:46 - Product feed file generated
+01-08-2024 @ 23:03:21 - Generating a fresh product feed file
+01-08-2024 @ 23:03:21 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 23:03:22 - 582: No options for attribute_add-sibling
+01-08-2024 @ 23:03:22 - Product feed file generated
+01-08-2024 @ 23:03:22 - Generating a fresh product feed file
+01-08-2024 @ 23:03:22 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 23:03:22 - 582: No options for attribute_add-sibling
+01-08-2024 @ 23:03:22 - Product feed file generated
+01-08-2024 @ 23:34:02 - Generating a fresh product feed file
+01-08-2024 @ 23:34:02 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 23:34:02 - 582: No options for attribute_add-sibling
+01-08-2024 @ 23:34:02 - Product feed file generated
+01-08-2024 @ 23:34:02 - Generating a fresh product feed file
+01-08-2024 @ 23:34:02 - 21586: No options for attribute_pa_add-sibling
+01-08-2024 @ 23:34:02 - 582: No options for attribute_add-sibling
+01-08-2024 @ 23:34:02 - Product feed file generated
+01-09-2024 @ 00:07:36 - Request
+Request
+method: GET
+uri: https://graph.facebook.com/v7.0/fbe_business?fbe_external_business_id=moxiekids-5f9bd37d9a46f
+user-agent: Facebook-for-WooCommerce/2.2.0 (WooCommerce/4.7.4; WordPress/5.5.13)
+headers: Array
+(
+    [Authorization] => *************************************************************************************************************************************************************************************************************************
+    [content-type] => application/json
+    [accept] => application/json
+)
+body:
+duration: 0.39883s
+
+01-09-2024 @ 00:07:36 - Response
+Response
+code: 200
+message: OK
+headers: Array
+(
+    [content-encoding] => gzip
+    [etag] => "4147629b2d967912650bd4266630901a5f29acee"
+    [content-type] => application/json
+    [vary] => Array
+        (
+            [0] => Origin
+            [1] => Accept-Encoding
+        )
+
+    [cross-origin-resource-policy] => cross-origin
+    [x-app-usage] => {"call_count":17,"total_cputime":0,"total_time":4}
+    [access-control-allow-origin] => *
+    [facebook-api-version] => v12.0
+    [strict-transport-security] => max-age=15552000; preload
+    [pragma] => no-cache
+    [cache-control] => private, no-cache, no-store, must-revalidate
+    [expires] => Sat, 01 Jan 2000 00:00:00 GMT
+    [x-fb-request-id] => A82WFeVuFPTPzIe-YyKtUYm
+    [x-fb-trace-id] => D0bk1sJgtDY
+    [x-fb-rev] => 1010716475
+    [x-fb-debug] => zrSP9p4ZqwU7YDGb4CJWBaN9bx1SguStxF9jRGMhzwB8/FavA9xig4a5W8DWqHqkRYNiDpIf6ZoQApoFHjsd9Q==
+    [date] => Mon, 08 Jan 2024 22:07:36 GMT
+    [alt-svc] => h3=":443"; ma=86400
+    [content-length] => 225
+)
+body: {"business":{"name":"Moxie Kids"},"catalogs":[{"feature_instance_id":"4411610415614632","enabled":true}],"catalog_feed_scheduled":{"enabled":false},"ig_cta":{"enabled":false},"ig_shopping":{"enabled":false},"messenger_chat":{"enabled":false},"messenger_menu":{"enabled":false},"page_card":{"enabled":false},"page_cta":{"enabled":false},"page_post":{"enabled":false},"page_shop":{"enabled":false},"pixels":[{"feature_instance_id":"1494650977585068","enabled":true}],"thread_intent":{"enabled":false}}
+
+01-09-2024 @ 00:07:37 - Generating a fresh product feed file
+01-09-2024 @ 00:07:37 - 21586: No options for attribute_pa_add-sibling
+01-09-2024 @ 00:07:37 - 582: No options for attribute_add-sibling
+01-09-2024 @ 00:07:37 - Product feed file generated
+01-09-2024 @ 00:07:37 - Generating a fresh product feed file
+01-09-2024 @ 00:07:37 - 21586: No options for attribute_pa_add-sibling
+01-09-2024 @ 00:07:37 - 582: No options for attribute_add-sibling
+01-09-2024 @ 00:07:37 - Product feed file generated

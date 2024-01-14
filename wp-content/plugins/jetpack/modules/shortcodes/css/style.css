@@ -1,5 +1,5 @@
 /**
-* 1. Fullscreen css
+* 1. Fullscreen styles
 */
 html.presentation-wrapper-fullscreen-parent,
 body.presentation-wrapper-fullscreen-parent {
@@ -40,11 +40,11 @@ body.presentation-wrapper-fullscreen-parent {
 
 
 /**
- * 2. General presentation css
+ * 2. General presentation styles
  */
 .presentation-wrapper {
 	margin: 20px auto;
-	border: 1px solid #e5e5e5;
+	border: 1px solid #dcdcde;
 	overflow: hidden;
 	line-height: normal;
 }
@@ -152,7 +152,7 @@ body.presentation-wrapper-fullscreen-parent {
 	z-index: 100;
 	display: table;
 	border-radius: 50px;
-	background-color: #e5e5e5;
+	background-color: #dcdcde;
 	background-color: rgba(0, 0, 0, 0.75);
 
 	-webkit-transition : opacity .5s;

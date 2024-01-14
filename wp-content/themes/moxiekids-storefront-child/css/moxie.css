@@ -1,35 +1,40 @@
 .aligncenteruppercase {
-    text-align: center;
-    text-transform: uppercase;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .moxie-footer {
-    background: rgb(250, 0, 229);
-    color: white;
+  background: rgb(0, 200, 255);
+  color: white;
 }
 
 #header-with-info {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-#button-inline-left {
-    display: inline-block;
-    float: left;
-    margin-left: 25%;
+.link-on-page {
+  text-decoration: none;
 }
 
-#button-inline-right {
-    display: inline-block;
+.navbar-custom {
+  background-color: white !important;
+  color: black !important;
+}
+
+@media screen and (min-width: 782px) {
+  .half-size {
+    width: 50%;
     float: right;
-    margin-right: 25%;
+  }
 }
 
-.keep-left {
-    width: 45%;
+.product-description {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 782px) {
+  .left-image {
+    width: 300px;
     float: left;
-}
-
-.keep-right {
-    width: 45%;
-    float: right;
+  }
 }

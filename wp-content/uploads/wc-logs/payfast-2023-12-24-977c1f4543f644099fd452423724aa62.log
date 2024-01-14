@@ -1,0 +1,111 @@
+12-24-2023 @ 15:44:07 - 
+----------
+PayFast ITN call received
+----------
+12-24-2023 @ 15:44:07 - Get posted data
+12-24-2023 @ 15:44:07 - PayFast Data: Array
+(
+    [m_payment_id] => 22402
+    [pf_payment_id] => 146250250
+    [payment_status] => COMPLETE
+    [item_name] => Moxie Kids - 22402
+    [item_description] => New order from Moxie Kids
+    [amount_gross] => 601.00
+    [amount_fee] => -24.42
+    [amount_net] => 576.58
+    [custom_str1] => wc_order_E3A7ZiOV3lt71
+    [custom_str2] => WooCommerce/4.7.4; https://www.moxiekids.co.za
+    [custom_str3] => 22402
+    [custom_str4] => 
+    [custom_str5] => 
+    [custom_int1] => 
+    [custom_int2] => 
+    [custom_int3] => 
+    [custom_int4] => 
+    [custom_int5] => 
+    [name_first] => Gina
+    [name_last] => Rick
+    [email_address] => ginarick@gmail.com
+    [merchant_id] => 14573725
+    [signature] => 80a6111e77ea7ad4e7066afc8cba5a80
+)
+
+12-24-2023 @ 15:44:07 - Verify security signature
+12-24-2023 @ 15:44:07 - Signature = valid
+12-24-2023 @ 15:44:07 - Verify source IP
+12-24-2023 @ 15:44:07 - Valid IPs:
+Array
+(
+    [0] => 34.107.176.71
+    [1] => 34.120.184.229
+    [2] => 41.74.179.218
+    [3] => 41.74.179.203
+    [4] => 197.97.145.156
+    [5] => 41.74.179.193
+    [6] => 41.74.179.204
+    [7] => 41.74.179.194
+    [8] => 41.74.179.197
+    [9] => 41.74.179.196
+    [10] => 41.74.179.217
+    [11] => 41.74.179.210
+    [12] => 41.74.179.195
+    [13] => 144.126.193.139
+    [14] => 41.74.179.200
+    [15] => 41.74.179.212
+    [16] => 41.74.179.201
+    [17] => 41.74.179.211
+    [18] => 197.97.145.149
+    [20] => 197.97.145.150
+    [21] => 197.97.145.148
+    [22] => 197.97.145.145
+)
+
+12-24-2023 @ 15:44:07 - Verify data received
+12-24-2023 @ 15:44:07 - Host = https://www.payfast.co.za/eng/query/validate
+12-24-2023 @ 15:44:07 - Params = Array
+(
+    [m_payment_id] => 22402
+    [pf_payment_id] => 146250250
+    [payment_status] => COMPLETE
+    [item_name] => Moxie Kids - 22402
+    [item_description] => New order from Moxie Kids
+    [amount_gross] => 601.00
+    [amount_fee] => -24.42
+    [amount_net] => 576.58
+    [custom_str1] => wc_order_E3A7ZiOV3lt71
+    [custom_str2] => WooCommerce/4.7.4; https://www.moxiekids.co.za
+    [custom_str3] => 22402
+    [custom_str4] => 
+    [custom_str5] => 
+    [custom_int1] => 
+    [custom_int2] => 
+    [custom_int3] => 
+    [custom_int4] => 
+    [custom_int5] => 
+    [name_first] => Gina
+    [name_last] => Rick
+    [email_address] => ginarick@gmail.com
+    [merchant_id] => 14573725
+)
+
+12-24-2023 @ 15:44:08 - Response:
+Array
+(
+    [VALID] => 
+)
+
+12-24-2023 @ 15:44:08 - Check data against internal order
+12-24-2023 @ 15:44:08 - Order Details:
+customer id:280
+order id:   22402
+parent id:  0
+status:     pending
+total:      601.00
+currency:   ZAR
+key:        wc_order_E3A7ZiOV3lt71
+12-24-2023 @ 15:44:08 - Check status and update order
+12-24-2023 @ 15:44:08 - - Complete
+12-24-2023 @ 15:44:27 - 
+----------
+End ITN call
+----------

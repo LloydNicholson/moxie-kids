@@ -179,7 +179,7 @@ if ( !defined( 'ABSPATH' ) )exit;
         <div class="ctc-input-row clearfix ctc-themeonly-container" id="input_row_stylesheet_handling_container" style="display:none">
             <div class="ctc-input-cell ctc-clear" id="input_row_stylesheet_handling"><span class="ctc-step ctc-step-number">5</span>
                 <strong class="shift">
-                    <?php _e( 'Select where to save new css:', 'child-theme-configurator' ); ?>
+                    <?php _e( 'Select where to save new styles:', 'child-theme-configurator' ); ?>
                 </strong>
             </div>
             <div class="ctc-input-cell-wide sep">
@@ -191,7 +191,7 @@ if ( !defined( 'ABSPATH' ) )exit;
           <?php _e( "Primary Stylesheet (style.css)", 'child-theme-configurator' ); ?>
           </strong>
           <p class="howto indent sep">
-            <?php _e( 'Save new custom css directly to the Child Theme primary stylesheet, replacing the existing values. The primary stylesheet will load in the order set by the theme.', 'child-theme-configurator' ); ?>
+            <?php _e( 'Save new custom styles directly to the Child Theme primary stylesheet, replacing the existing values. The primary stylesheet will load in the order set by the theme.', 'child-theme-configurator' ); ?>
           </p>
           </label>
             
@@ -206,7 +206,7 @@ if ( !defined( 'ABSPATH' ) )exit;
           <?php _e( 'Separate Stylesheet', 'child-theme-configurator' ); ?>
           </strong>
           <p class="howto indent">
-            <?php _e( 'Save new custom css to a separate stylesheet and combine any existing child theme css with the parent to form baseline. Select this option if you want to preserve the existing child theme css instead of overwriting them. This option also allows you to customize stylesheets that load after the primary stylesheet.', 'child-theme-configurator' ); ?>
+            <?php _e( 'Save new custom styles to a separate stylesheet and combine any existing child theme styles with the parent to form baseline. Select this option if you want to preserve the existing child theme styles instead of overwriting them. This option also allows you to customize stylesheets that load after the primary stylesheet.', 'child-theme-configurator' ); ?>
           </p>
           </label>
             
@@ -272,7 +272,7 @@ if ( !defined( 'ABSPATH' ) )exit;
                 <label><input class="ctc_checkbox ctc-themeonly" id="ctc_ignoreparnt" name="ctc_ignoreparnt" type="checkbox" 
                 value="1" autocomplete="off" />
           <strong><?php _e( 'Ignore parent theme stylesheets.', 'child-theme-configurator' ); ?></strong>
-          <p class="howto indent"><?php _e( 'Do not load or parse the parent theme css. Only use this option if the Child Theme uses a Framework like Genesis and uses <em>only child theme stylesheets</em> for its appearance.', 'child-theme-configurator' ); ?></p></label>
+          <p class="howto indent"><?php _e( 'Do not load or parse the parent theme styles. Only use this option if the Child Theme uses a Framework like Genesis and uses <em>only child theme stylesheets</em> for its appearance.', 'child-theme-configurator' ); ?></p></label>
             </div>
             <div id="ctc_repairheader_container" style="display:none">
                 <div class="ctc-input-cell ctc-clear">
@@ -310,8 +310,8 @@ if ( !defined( 'ABSPATH' ) )exit;
                     <?php _e( 'Customize the Child Theme Name, Description, Author, Version, etc.:', 'child-theme-configurator' ); ?>
                 </strong>
             </div>
-            <div class="ctc-input-cell">
-                <input type="button" class="ctc-section-toggle button-secondary" value="<?php _e( 'Show/Hide Child Theme Attributes', 'child-theme-configurator' ); ?>" id="ctc_theme_attributes" title="<?php _e( 'Click to toggle form', 'child-theme-configurator' ); ?>" /></div>
+            <div class="ctc-input-cell-wide">
+                <button class="ctc-section-toggle button-secondary" id="ctc_theme_attributes" title="<?php _e( 'Click to toggle form', 'child-theme-configurator' ); ?>"><?php _e( 'Click to Edit Child Theme Attributes', 'child-theme-configurator' ); ?> &nbsp;</button></div>
             <div class="ctc-clear ctc-section-toggle-content" id="ctc_theme_attributes_content">
                 <div class="ctc-input-row clearfix ctc-themeonly-container" id="input_row_child_name">
                     <div class="ctc-input-cell">
@@ -396,10 +396,10 @@ if ( !defined( 'ABSPATH' ) )exit;
                 <label for="ctc_parent_mods">
           <input class="ctc_checkbox ctc-themeonly" id="ctc_parent_mods" name="ctc_parent_mods" type="checkbox" 
                 value="1" />
-          <strong>
-          <?php _e( 'NOTE:', 'child-theme-configurator' ); ?>
-          </strong>
-          <?php _e( "This option replaces the Child Theme's existing Menus, Widgets and other Customizer Settings with those from the Parent Theme. You should only need to use this option the first time you configure a Child Theme. <strong>Some themes use additional options that cannot be copied with the free verson of CTC. Click the \"Upgrade\" tab for more information.</strong>", 'child-theme-configurator' ); ?>
+          <?php _e( "This option replaces the Child Theme's existing Menus, Widgets and other Customizer Settings with those from the Parent Theme. You should only need to use this option the first time you configure a Child Theme.", 'child-theme-configurator' ); ?>
+          <h3>
+          <?php _e( 'IMPORTANT: Some "premium" themes use unsupported options that cannot be copied with the free verson of CTC. If you purchased this theme from a website such as "ThemeForest," child themes may not work correctly. Click the "Upgrade" tab for more information.', 'child-theme-configurator' ); ?>
+          </h3>
         </label>
             
 

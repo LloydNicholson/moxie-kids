@@ -3,7 +3,7 @@
  * WooCommerce product embed
  *
  * @version  2.4.11
- * @package  WooCommerce/Classes/Embed
+ * @package  WooCommerce\Classes\Embed
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,7 +31,7 @@ class WC_Embed {
 		// In the comments place let's display the product rating.
 		add_action( 'embed_content_meta', array( __CLASS__, 'get_ratings' ), 5 );
 
-		// Add some basic css.
+		// Add some basic styles.
 		add_action( 'embed_head', array( __CLASS__, 'print_embed_styles' ) );
 	}
 

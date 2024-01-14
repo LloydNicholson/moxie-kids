@@ -31,7 +31,7 @@ class WCS_Early_Renewal_Modal_Handler {
 	 * @param WC_Subscription $subscription The subscription to print the modal for.
 	 */
 	public static function maybe_print_early_renewal_modal( $subscription ) {
-		if ( ! WCS_Early_Renewal_Manager::is_early_renewal_via_modal_enabled() || ! wcs_can_user_renew_early( $subscription ) ) {
+		if ( ! self::can_user_renew_early_via_modal( $subscription ) ) {
 			return;
 		}
 
@@ -45,6 +45,7 @@ class WCS_Early_Renewal_Modal_Handler {
 					'process_early_renewal' => true,
 					'wcs_nonce'             => wp_create_nonce( 'wcs-renew-early-modal-' . $subscription->get_id() ),
 				) ),
+				'data-payment-method' => $subscription->get_payment_method(),
 			),
 		);
 
@@ -80,7 +81,16 @@ class WCS_Early_Renewal_Modal_Handler {
 			$new_next_payment_date = null;
 		}
 
-		wc_get_template( 'html-early-renewal-modal-content.php', array( 'subscription' => $subscription, 'totals' => $totals, 'new_next_payment_date' => $new_next_payment_date ), '', plugin_dir_path( WC_Subscriptions::$plugin_file ) . '/templates/' );
+		wc_get_template(
+			'html-early-renewal-modal-content.php',
+			array(
+				'subscription'          => $subscription,
+				'totals'                => $totals,
+				'new_next_payment_date' => $new_next_payment_date,
+			),
+			'',
+			WC_Subscriptions_Plugin::instance()->get_plugin_directory( 'templates/' )
+		);
 	}
 
 	/**
@@ -93,7 +103,7 @@ class WCS_Early_Renewal_Modal_Handler {
 			return;
 		}
 
-		if ( ! wp_verify_nonce( $_GET['wcs_nonce'], 'wcs-renew-early-modal-' . $_GET['subscription_id'] ) ) {
+		if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['wcs_nonce'] ) ), 'wcs-renew-early-modal-' . absint( $_GET['subscription_id'] ) ) ) {
 			wc_add_notice( __( 'There was an error with your request. Please try again.', 'woocommerce-subscriptions' ), 'error' );
 			self::redirect();
 		}
@@ -102,6 +112,11 @@ class WCS_Early_Renewal_Modal_Handler {
 
 		if ( ! $subscription ) {
 			wc_add_notice( __( 'We were unable to locate that subscription, please try again.', 'woocommerce-subscriptions' ), 'error' );
+			self::redirect();
+		}
+
+		if ( ! self::can_user_renew_early_via_modal( $subscription ) ) {
+			wc_add_notice( __( "You can't renew the subscription at this time. Please try again.", 'woocommerce-subscriptions' ), 'error' );
 			self::redirect();
 		}
 
@@ -132,11 +147,34 @@ class WCS_Early_Renewal_Modal_Handler {
 			wp_redirect( wcs_get_early_renewal_url( $subscription ) );
 			exit();
 		} else {
+			// Trigger the subscription payment complete hooks and reset suspension counts and user roles.
+			$subscription->payment_complete();
+
 			wcs_update_dates_after_early_renewal( $subscription, $renewal_order );
 			wc_add_notice( __( 'Your early renewal order was successful.', 'woocommerce-subscriptions' ), 'success' );
 		}
 
 		self::redirect();
+	}
+
+	/**
+	 * Checks if a user can renew a subscription early via the modal window.
+	 *
+	 * @param int|WC_Subscription $subscription Post ID of a 'shop_subscription' post, or instance of a WC_Subscription object.
+	 * @param int $user_id The ID of a user. Defaults to the current user.
+	 * @return boolean
+	 *
+	 * @since 3.0.5
+	 */
+	public static function can_user_renew_early_via_modal( $subscription, $user_id = 0 ) {
+		$user_id      = ! empty( $user_id ) ? absint( $user_id ) : get_current_user_id();
+		$subscription = wcs_get_subscription( $subscription );
+
+		if ( ! WCS_Early_Renewal_Manager::is_early_renewal_via_modal_enabled() || ! wcs_can_user_renew_early( $subscription, $user_id ) ) {
+			return false;
+		}
+
+		return apply_filters( 'woocommerce_subscriptions_can_user_renew_early_via_modal', $subscription->get_user_id() === $user_id, $subscription, $user_id );
 	}
 
 	/**

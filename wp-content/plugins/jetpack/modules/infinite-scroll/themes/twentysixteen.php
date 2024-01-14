@@ -3,17 +3,22 @@
  * Infinite Scroll Theme Assets
  *
  * Register support for Twenty Sixteen.
+ *
+ * @package jetpack
  */
 
 /**
  * Add theme support for infinite scroll
  */
 function jetpack_twentysixteen_infinite_scroll_init() {
-	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
-		'render'    => 'jetpack_twentysixteen_infinite_scroll_render',
-		'footer'    => 'content',
-	) );
+	add_theme_support(
+		'infinite-scroll',
+		array(
+			'container' => 'main',
+			'render'    => 'jetpack_twentysixteen_infinite_scroll_render',
+			'footer'    => 'content',
+		)
+	);
 }
 add_action( 'after_setup_theme', 'jetpack_twentysixteen_infinite_scroll_init' );
 
@@ -32,7 +37,7 @@ function jetpack_twentysixteen_infinite_scroll_render() {
 }
 
 /**
- * Enqueue CSS stylesheet with theme css for Infinite Scroll.
+ * Enqueue CSS stylesheet with theme styles for Infinite Scroll.
  */
 function jetpack_twentysixteen_infinite_scroll_enqueue_styles() {
 	if ( wp_script_is( 'the-neverending-homepage' ) ) {

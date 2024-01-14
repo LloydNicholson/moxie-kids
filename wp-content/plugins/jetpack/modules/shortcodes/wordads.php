@@ -5,7 +5,7 @@
  * Examples:
  * [wordads]
  *
- * @package Jetpack
+ * @package automattic/jetpack
  */
 
 /**
@@ -14,9 +14,9 @@
 class Jetpack_WordAds_Shortcode {
 
 	/**
-	 * Used to determine whether scripts and css have been enqueued already.
+	 * Used to determine whether scripts and styles have been enqueued already.
 	 *
-	 * @var bool false Should we enqueue scripts and css.
+	 * @var bool false Should we enqueue scripts and styles.
 	 */
 	private $scripts_and_style_included = false;
 
@@ -63,7 +63,7 @@ class Jetpack_WordAds_Shortcode {
 	 *
 	 * @return string HTML output
 	 */
-	private static function wordads_shortcode_html( $atts, $content = '' ) {
+	private static function wordads_shortcode_html( $atts, $content = '' ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		global $wordads;
 
 		if ( empty( $wordads ) ) {

@@ -65,7 +65,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
                 
             case 'max_styles':
             
-                echo sprintf( __( '<strong>However, some css could not be parsed due to memory limits.</strong> Try deselecting "Additional Stylesheets" below and click "Generate/Rebuild Child Theme Files". %sWhy am I seeing this?%s', 'child-theme-configurator' ), 
+                echo sprintf( __( '<strong>However, some styles could not be parsed due to memory limits.</strong> Try deselecting "Additional Stylesheets" below and click "Generate/Rebuild Child Theme Files". %sWhy am I seeing this?%s', 'child-theme-configurator' ), 
                 '<a target="_blank" href="' . LILAEAMEDIA_URL . '/child-theme-configurator#php_memory">',
                 '</a>' );
                 break;
@@ -103,7 +103,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
       </a></p>
     <p class="howto">
       <?php _e( 'For more information, please open the Help tab at the top right or ', 'child-theme-configurator' ) ?>
-      <a href="http://www.childthemeconfigurator.com/tutorial-videos/" target="_blank">
+      <a href="http://www.childthemeplugin.com/tutorial-videos/" target="_blank">
       <?php _e( 'click here to view the latest videos.', 'child-theme-configurator' ); ?>
       </a></p>
     <?php if ( $child ): ?>

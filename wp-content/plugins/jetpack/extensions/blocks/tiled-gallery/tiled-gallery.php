@@ -1,19 +1,27 @@
 <?php //phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
-
 /**
- * Tiled Gallery block. Depends on the Photon module.
+ * Tiled Gallery block.
+ * Relies on Photon, but can be used even when the module is not active.
  *
  * @since 6.9.0
  *
- * @package Jetpack
+ * @package automattic/jetpack
  */
+
+namespace Automattic\Jetpack\Extensions;
+
+use Automattic\Jetpack\Blocks;
+use Automattic\Jetpack\Current_Plan as Jetpack_Plan;
+use Automattic\Jetpack\Status;
+use Jetpack;
+use Jetpack_Gutenberg;
 
 /**
  * Jetpack Tiled Gallery Block class
  *
  * @since 7.3
  */
-class Jetpack_Tiled_Gallery_Block {
+class Tiled_Gallery {
 	/* Values for building srcsets */
 	const IMG_SRCSET_WIDTH_MAX  = 2000;
 	const IMG_SRCSET_WIDTH_MIN  = 600;
@@ -23,12 +31,18 @@ class Jetpack_Tiled_Gallery_Block {
 	 * Register the block
 	 */
 	public static function register() {
-		jetpack_register_block(
-			'jetpack/tiled-gallery',
-			array(
-				'render_callback' => array( __CLASS__, 'render' ),
-			)
-		);
+		if (
+			( defined( 'IS_WPCOM' ) && IS_WPCOM )
+			|| Jetpack::is_connection_ready()
+			|| ( new Status() )->is_offline_mode()
+		) {
+			Blocks::jetpack_register_block(
+				__DIR__,
+				array(
+					'render_callback' => array( __CLASS__, 'render' ),
+				)
+			);
+		}
 	}
 
 	/**
@@ -40,12 +54,11 @@ class Jetpack_Tiled_Gallery_Block {
 	 * @return string
 	 */
 	public static function render( $attr, $content ) {
-		Jetpack_Gutenberg::load_assets_as_required( 'tiled-gallery' );
+		Jetpack_Gutenberg::load_assets_as_required( __DIR__ );
 
 		$is_squareish_layout = self::is_squareish_layout( $attr );
 
 		$jetpack_plan = Jetpack_Plan::get();
-
 		wp_localize_script( 'jetpack-gallery-settings', 'jetpack_plan', array( 'data' => $jetpack_plan['product_slug'] ) );
 
 		if ( preg_match_all( '/<img [^>]+>/', $content, $images ) ) {
@@ -61,8 +74,8 @@ class Jetpack_Tiled_Gallery_Block {
 
 			foreach ( $images[0] as $image_html ) {
 				if (
-					preg_match( '/data-width="([0-9]+)"/', $image_html, $img_height )
-					&& preg_match( '/data-height="([0-9]+)"/', $image_html, $img_width )
+					preg_match( '/data-width="([0-9]+)"/', $image_html, $img_width )
+					&& preg_match( '/data-height="([0-9]+)"/', $image_html, $img_height )
 					&& preg_match( '/src="([^"]+)"/', $image_html, $img_src )
 				) {
 					// Drop img src query string so it can be used as a base to add photon params
@@ -74,7 +87,7 @@ class Jetpack_Tiled_Gallery_Block {
 
 					// Because URLs are already "photon", the photon function used short-circuits
 					// before ssl is added. Detect ssl and add is if necessary.
-					$is_ssl = ! empty( $src_parts[1] ) && false !== strpos( $src_parts[1], 'ssl=1' );
+					$is_ssl = ! empty( $src_parts[1] ) && str_contains( $src_parts[1], 'ssl=1' );
 
 					if ( ! $orig_width || ! $orig_height || ! $orig_src ) {
 						continue;
@@ -152,7 +165,7 @@ class Jetpack_Tiled_Gallery_Block {
 	/**
 	 * Determines whether a Tiled Gallery block uses square or circle images (1:1 ratio)
 	 *
-	 * Layouts are block css and will be available as `is-style-[LAYOUT]` in the className
+	 * Layouts are block styles and will be available as `is-style-[LAYOUT]` in the className
 	 * attribute. The default (rectangular) will be omitted.
 	 *
 	 * @param  {Array} $attr Attributes key/value array.
@@ -167,4 +180,4 @@ class Jetpack_Tiled_Gallery_Block {
 	}
 }
 
-Jetpack_Tiled_Gallery_Block::register();
+Tiled_Gallery::register();

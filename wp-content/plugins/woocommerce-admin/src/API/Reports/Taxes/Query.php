@@ -11,8 +11,6 @@
  *         );
  * $report = new \Automattic\WooCommerce\Admin\API\Reports\Taxes\Query( $args );
  * $mydata = $report->get_data();
- *
- * @package  WooCommerce Admin/Classes
  */
 
 namespace Automattic\WooCommerce\Admin\API\Reports\Taxes;
@@ -41,10 +39,10 @@ class Query extends ReportsQuery {
 	 * @return array
 	 */
 	public function get_data() {
-		$args = apply_filters( 'woocommerce_reports_taxes_query_args', $this->get_query_vars() );
+		$args = apply_filters( 'woocommerce_analytics_taxes_query_args', $this->get_query_vars() );
 
 		$data_store = \WC_Data_Store::load( 'report-taxes' );
 		$results    = $data_store->get_data( $args );
-		return apply_filters( 'woocommerce_reports_taxes_select_query', $results, $args );
+		return apply_filters( 'woocommerce_analytics_taxes_select_query', $results, $args );
 	}
 }

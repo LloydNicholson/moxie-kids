@@ -4,8 +4,11 @@
  * Allow new block editor posts to be composed on WordPress.com.
  * This is auto-loaded as of Jetpack v7.4 for sites connected to WordPress.com only.
  *
- * @package Jetpack
+ * @package automattic/jetpack
  */
+
+use Automattic\Jetpack\Connection\Tokens;
+use Automattic\Jetpack\Status\Host;
 
 /**
  * WordPress.com Block editor for Jetpack
@@ -17,6 +20,13 @@ class Jetpack_WPCOM_Block_Editor {
 	 * @var int
 	 */
 	private $nonce_user_id;
+
+	/**
+	 * An array to store auth cookies until we can determine if they should be sent
+	 *
+	 * @var array
+	 */
+	private $set_cookie_args;
 
 	/**
 	 * Singleton
@@ -35,14 +45,34 @@ class Jetpack_WPCOM_Block_Editor {
 	 * Jetpack_WPCOM_Block_Editor constructor.
 	 */
 	private function __construct() {
+		$this->set_cookie_args = array();
+		add_action( 'init', array( $this, 'init_actions' ) );
+	}
+
+	/**
+	 * Add in all hooks.
+	 */
+	public function init_actions() {
+		// Bail early if Jetpack's block editor extensions are disabled on the site.
+		/* This filter is documented in class.jetpack-gutenberg.php */
+		if ( ! apply_filters( 'jetpack_gutenberg', true ) ) {
+			return;
+		}
+
 		if ( $this->is_iframed_block_editor() ) {
 			add_action( 'admin_init', array( $this, 'disable_send_frame_options_header' ), 9 );
 			add_filter( 'admin_body_class', array( $this, 'add_iframed_body_class' ) );
 		}
 
+		require_once __DIR__ . '/functions.editor-type.php';
+		add_action( 'edit_form_top', 'Jetpack\EditorType\remember_classic_editor' );
 		add_action( 'login_init', array( $this, 'allow_block_editor_login' ), 1 );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_scripts' ), 9 );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ), 9 );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
 		add_filter( 'mce_external_plugins', array( $this, 'add_tinymce_plugins' ) );
+		add_filter( 'block_editor_settings_all', 'Jetpack\EditorType\remember_block_editor', 10, 2 );
+
+		$this->enable_cross_site_auth_cookies();
 	}
 
 	/**
@@ -58,28 +88,47 @@ class Jetpack_WPCOM_Block_Editor {
 	}
 
 	/**
-	 * Prevents frame options header from firing if this is a whitelisted iframe request.
+	 * Prevents frame options header from firing if this is a allowed iframe request.
 	 */
 	public function disable_send_frame_options_header() {
-		// phpcs:ignore WordPress.Security.NonceVerification
-		if ( $this->framing_allowed( $_GET['frame-nonce'] ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput
+		if ( isset( $_GET['frame-nonce'] ) && $this->framing_allowed( $_GET['frame-nonce'] ) ) {
 			remove_action( 'admin_init', 'send_frame_options_header' );
 		}
 	}
 
 	/**
-	 * Adds custom admin body class if this is a whitelisted iframe request.
+	 * Adds custom admin body class if this is a allowed iframe request.
 	 *
 	 * @param string $classes Admin body classes.
 	 * @return string
 	 */
 	public function add_iframed_body_class( $classes ) {
-		// phpcs:ignore WordPress.Security.NonceVerification
-		if ( $this->framing_allowed( $_GET['frame-nonce'] ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput
+		if ( isset( $_GET['frame-nonce'] ) && $this->framing_allowed( $_GET['frame-nonce'] ) ) {
 			$classes .= ' is-iframed ';
 		}
 
 		return $classes;
+	}
+
+	/**
+	 * Checks to see if cookie can be set in current context. If 3rd party cookie blocking
+	 * is enabled the editor can't load in iFrame, so emiting X-Frame-Options: DENY will
+	 * force the editor to break out of the iFrame.
+	 */
+	private function check_iframe_cookie_setting() {
+		if ( ! isset( $_SERVER['QUERY_STRING'] ) || ! strpos( filter_var( wp_unslash( $_SERVER['QUERY_STRING'] ) ), 'calypsoify%3D1%26block-editor' ) || isset( $_COOKIE['wordpress_test_cookie'] ) ) {
+			return;
+		}
+
+		if ( isset( $_SERVER['REQUEST_URI'] ) && empty( $_GET['calypsoify_cookie_check'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			header( 'Location: ' . esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) . '&calypsoify_cookie_check=true' ) );
+			exit;
+		}
+
+		header( 'X-Frame-Options: DENY' );
+		exit;
 	}
 
 	/**
@@ -91,9 +140,12 @@ class Jetpack_WPCOM_Block_Editor {
 		if ( empty( $_REQUEST['redirect_to'] ) ) {
 			return;
 		}
-
 		// phpcs:ignore WordPress.Security.NonceVerification
-		$query = wp_parse_url( urldecode( $_REQUEST['redirect_to'] ), PHP_URL_QUERY );
+		$redirect_to = esc_url_raw( wp_unslash( $_REQUEST['redirect_to'] ) );
+
+		$this->check_iframe_cookie_setting();
+
+		$query = wp_parse_url( urldecode( $redirect_to ), PHP_URL_QUERY );
 		$args  = wp_parse_args( $query );
 
 		// Check nonce and make sure this is a Gutenframe request.
@@ -102,7 +154,7 @@ class Jetpack_WPCOM_Block_Editor {
 			// If SSO is active, we'll let WordPress.com handle authentication...
 			if ( Jetpack::is_module_active( 'sso' ) ) {
 				// ...but only if it's not an Atomic site. They already do that.
-				if ( ! jetpack_is_atomic_site() ) {
+				if ( ! ( new Host() )->is_woa_site() ) {
 					add_filter( 'jetpack_sso_bypass_login_forward_wpcom', '__return_true' );
 				}
 			} else {
@@ -137,7 +189,7 @@ class Jetpack_WPCOM_Block_Editor {
 	 */
 	public function add_login_html() {
 		?>
-		<input type="hidden" name="redirect_to" value="<?php echo esc_url( $_REQUEST['redirect_to'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>" />
+		<input type="hidden" name="redirect_to" value="<?php echo isset( $_REQUEST['redirect_to'] ) ? esc_url( wp_unslash( $_REQUEST['redirect_to'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized ?>" />
 		<script type="application/javascript">
 			document.getElementById( 'loginform' ).addEventListener( 'submit' , function() {
 				document.getElementById( 'wp-submit' ).setAttribute( 'disabled', 'disabled' );
@@ -156,7 +208,7 @@ class Jetpack_WPCOM_Block_Editor {
 	}
 
 	/**
-	 * Checks whether this is a whitelisted iframe request.
+	 * Checks whether this is an allowed iframe request.
 	 *
 	 * @param string $nonce Nonce to verify.
 	 * @return bool
@@ -197,7 +249,7 @@ class Jetpack_WPCOM_Block_Editor {
 			return false;
 		}
 
-		$token = Jetpack_Data::get_access_token( $this->nonce_user_id );
+		$token = ( new Tokens() )->get_access_token( $this->nonce_user_id );
 		if ( ! $token ) {
 			return false;
 		}
@@ -241,7 +293,7 @@ class Jetpack_WPCOM_Block_Editor {
 	 */
 	public function filter_salt( $salt, $scheme ) {
 		if ( 'jetpack_frame_nonce' === $scheme ) {
-			$token = Jetpack_Data::get_access_token( $this->nonce_user_id );
+			$token = ( new Tokens() )->get_access_token( $this->nonce_user_id );
 
 			if ( $token ) {
 				$salt = $token->secret;
@@ -252,44 +304,42 @@ class Jetpack_WPCOM_Block_Editor {
 	}
 
 	/**
-	 * Enqueue the scripts for the WordPress.com block editor integration.
+	 * Enqueues the WordPress.com block editor integration assets for the editor.
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_block_editor_assets() {
+		global $pagenow;
+
+		// Bail if we're not in the post editor, but on the widget settings screen.
+		if ( is_customize_preview() || 'widgets.php' === $pagenow ) {
+			return;
+		}
+
 		$debug   = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 		$version = gmdate( 'Ymd' );
 
-		$src_common = $debug
-			? '//widgets.wp.com/wpcom-block-editor/common.js?minify=false'
-			: '//widgets.wp.com/wpcom-block-editor/common.min.js';
-
 		wp_enqueue_script(
-			'wpcom-block-editor-common',
-			$src_common,
+			'wpcom-block-editor-default-editor-script',
+			$debug
+				? '//widgets.wp.com/wpcom-block-editor/default.editor.js?minify=false'
+				: '//widgets.wp.com/wpcom-block-editor/default.editor.min.js',
 			array(
 				'jquery',
 				'lodash',
-				'wp-blocks',
+				'wp-annotations',
 				'wp-compose',
 				'wp-data',
-				'wp-dom-ready',
 				'wp-editor',
-				'wp-nux',
-				'wp-plugins',
-				'wp-polyfill',
+				'wp-element',
 				'wp-rich-text',
 			),
 			$version,
 			true
 		);
+
 		wp_localize_script(
-			'wpcom-block-editor-common',
+			'wpcom-block-editor-default-editor-script',
 			'wpcomGutenberg',
 			array(
-				'switchToClassic' => array(
-					'isVisible' => $this->is_iframed_block_editor(),
-					'label'     => __( 'Switch to Classic Editor', 'jetpack' ),
-					'url'       => Jetpack_Calypsoify::getInstance()->get_switch_to_classic_editor_url(),
-				),
 				'richTextToolbar' => array(
 					'justify'   => __( 'Justify', 'jetpack' ),
 					'underline' => __( 'Underline', 'jetpack' ),
@@ -297,24 +347,38 @@ class Jetpack_WPCOM_Block_Editor {
 			)
 		);
 
-		$src_styles = $debug
-			? '//widgets.wp.com/wpcom-block-editor/common.css?minify=false'
-			: '//widgets.wp.com/wpcom-block-editor/common.min.css';
-		wp_enqueue_style(
-			'wpcom-block-editor-css',
-			$src_styles,
-			array(),
-			$version
-		);
+		if ( ( new Host() )->is_woa_site() ) {
+			wp_enqueue_script(
+				'wpcom-block-editor-wpcom-editor-script',
+				$debug
+					? '//widgets.wp.com/wpcom-block-editor/wpcom.editor.js?minify=false'
+					: '//widgets.wp.com/wpcom-block-editor/wpcom.editor.min.js',
+				array(
+					'lodash',
+					'wp-blocks',
+					'wp-data',
+					'wp-dom-ready',
+					'wp-plugins',
+				),
+				$version,
+				true
+			);
+			wp_enqueue_style(
+				'wpcom-block-editor-wpcom-editor-styles',
+				$debug
+					? '//widgets.wp.com/wpcom-block-editor/wpcom.editor.css?minify=false'
+					: '//widgets.wp.com/wpcom-block-editor/wpcom.editor.min.css',
+				array(),
+				$version
+			);
+		}
 
 		if ( $this->is_iframed_block_editor() ) {
-			$src_calypso_iframe_bridge = $debug
-				? '//widgets.wp.com/wpcom-block-editor/calypso-iframe-bridge-server.js?minify=false'
-				: '//widgets.wp.com/wpcom-block-editor/calypso-iframe-bridge-server.min.js';
-
 			wp_enqueue_script(
-				'wpcom-block-editor-calypso-iframe-bridge',
-				$src_calypso_iframe_bridge,
+				'wpcom-block-editor-calypso-editor-script',
+				$debug
+					? '//widgets.wp.com/wpcom-block-editor/calypso.editor.js?minify=false'
+					: '//widgets.wp.com/wpcom-block-editor/calypso.editor.min.js',
 				array(
 					'calypsoify_wpadminmods_js',
 					'jquery',
@@ -323,14 +387,49 @@ class Jetpack_WPCOM_Block_Editor {
 					'wp-blocks',
 					'wp-data',
 					'wp-hooks',
-					'wp-polyfill',
 					'wp-tinymce',
 					'wp-url',
 				),
 				$version,
 				true
 			);
+
+			wp_enqueue_style(
+				'wpcom-block-editor-calypso-editor-styles',
+				$debug
+					? '//widgets.wp.com/wpcom-block-editor/calypso.editor.css?minify=false'
+					: '//widgets.wp.com/wpcom-block-editor/calypso.editor.min.css',
+				array(),
+				$version
+			);
 		}
+	}
+
+	/**
+	 * Enqueues the WordPress.com block editor integration assets for both editor and front-end.
+	 */
+	public function enqueue_block_assets() {
+		// These styles are manually copied from //widgets.wp.com/wpcom-block-editor/default.view.css in order to
+		// improve the performance by avoiding an extra network request to download the CSS file on every page.
+		wp_add_inline_style( 'wp-block-library', '.has-text-align-justify{text-align:justify;}' );
+	}
+
+	/**
+	 * Determines if the current $post contains a justified paragraph block.
+	 *
+	 * @return boolean true if justified paragraph is found, false otherwise.
+	 */
+	public function has_justified_block() {
+		global $post;
+		if ( ! $post instanceof WP_Post ) {
+			return false;
+		}
+
+		if ( ! has_blocks( $post ) ) {
+			return false;
+		}
+
+		return str_contains( $post->post_content, '<!-- wp:paragraph {"align":"justify"' );
 	}
 
 	/**
@@ -341,19 +440,181 @@ class Jetpack_WPCOM_Block_Editor {
 	 */
 	public function add_tinymce_plugins( $plugin_array ) {
 		if ( $this->is_iframed_block_editor() ) {
-			$debug               = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
-			$src_calypso_tinymce = $debug
-				? '//widgets.wp.com/wpcom-block-editor/calypso-tinymce.js?minify=false'
-				: '//widgets.wp.com/wpcom-block-editor/calypso-tinymce.min.js';
+			$debug = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
 			$plugin_array['gutenberg-wpcom-iframe-media-modal'] = add_query_arg(
 				'v',
 				gmdate( 'YW' ),
-				$src_calypso_tinymce
+				$debug
+					? '//widgets.wp.com/wpcom-block-editor/calypso.tinymce.js?minify=false'
+					: '//widgets.wp.com/wpcom-block-editor/calypso.tinymce.min.js'
 			);
 		}
 
 		return $plugin_array;
+	}
+
+	/**
+	 * Ensures the authentication cookies are designated for cross-site access.
+	 */
+	private function enable_cross_site_auth_cookies() {
+		/**
+		 * Allow plugins to disable the cross-site auth cookies.
+		 *
+		 * @since 8.1.1
+		 *
+		 * @param false bool Whether auth cookies should be disabled for cross-site access. False by default.
+		 */
+		if ( apply_filters( 'jetpack_disable_cross_site_auth_cookies', false ) ) {
+			return;
+		}
+
+		add_action( 'set_auth_cookie', array( $this, 'set_samesite_auth_cookies' ), 10, 5 );
+		add_action( 'set_logged_in_cookie', array( $this, 'set_samesite_logged_in_cookies' ), 10, 4 );
+		add_filter( 'send_auth_cookies', array( $this, 'maybe_send_cookies' ), 9999 );
+	}
+
+	/**
+	 * Checks if we've stored any cookies to send and then sends them
+	 * if the send_auth_cookies value is true.
+	 *
+	 * @param bool $send_cookies The filtered value that determines whether to send auth cookies.
+	 */
+	public function maybe_send_cookies( $send_cookies ) {
+
+		if ( ! empty( $this->set_cookie_args ) && $send_cookies ) {
+			array_map(
+				function ( $cookie ) {
+					call_user_func_array( 'jetpack_shim_setcookie', $cookie );
+				},
+				$this->set_cookie_args
+			);
+			$this->set_cookie_args = array();
+			return false;
+		}
+
+		return $send_cookies;
+	}
+
+	/**
+	 * Gets the SameSite attribute to use in auth cookies.
+	 *
+	 * @param  bool $secure Whether the connection is secure.
+	 * @return string SameSite attribute to use on auth cookies.
+	 */
+	public function get_samesite_attr_for_auth_cookies( $secure ) {
+		$samesite = $secure ? 'None' : 'Lax';
+		/**
+		 * Filters the SameSite attribute to use in auth cookies.
+		 *
+		 * @param string $samesite SameSite attribute to use in auth cookies.
+		 *
+		 * @since 8.1.1
+		 */
+		$samesite = apply_filters( 'jetpack_auth_cookie_samesite', $samesite );
+
+		return $samesite;
+	}
+
+	/**
+	 * Generates cross-site auth cookies so they can be accessed by WordPress.com.
+	 *
+	 * @param string $auth_cookie Authentication cookie value.
+	 * @param int    $expire      The time the login grace period expires as a UNIX timestamp.
+	 *                            Default is 12 hours past the cookie's expiration time.
+	 * @param int    $expiration  The time when the authentication cookie expires as a UNIX timestamp.
+	 *                            Default is 14 days from now.
+	 * @param int    $user_id     User ID.
+	 * @param string $scheme      Authentication scheme. Values include 'auth' or 'secure_auth'.
+	 */
+	public function set_samesite_auth_cookies( $auth_cookie, $expire, $expiration, $user_id, $scheme ) {
+		if ( wp_startswith( $scheme, 'secure_' ) ) {
+			$secure           = true;
+			$auth_cookie_name = SECURE_AUTH_COOKIE;
+		} else {
+			$secure           = false;
+			$auth_cookie_name = AUTH_COOKIE;
+		}
+		$samesite = $this->get_samesite_attr_for_auth_cookies( $secure );
+
+		$this->set_cookie_args[] = array(
+			$auth_cookie_name,
+			$auth_cookie,
+			array(
+				'expires'  => $expire,
+				'path'     => PLUGINS_COOKIE_PATH,
+				'domain'   => COOKIE_DOMAIN,
+				'secure'   => $secure,
+				'httponly' => true,
+				'samesite' => $samesite,
+			),
+		);
+
+		$this->set_cookie_args[] = array(
+			$auth_cookie_name,
+			$auth_cookie,
+			array(
+				'expires'  => $expire,
+				'path'     => ADMIN_COOKIE_PATH,
+				'domain'   => COOKIE_DOMAIN,
+				'secure'   => $secure,
+				'httponly' => true,
+				'samesite' => $samesite,
+			),
+		);
+	}
+
+	/**
+	 * Generates cross-site logged in cookies so they can be accessed by WordPress.com.
+	 *
+	 * @param string $logged_in_cookie The logged-in cookie value.
+	 * @param int    $expire           The time the login grace period expires as a UNIX timestamp.
+	 *                                 Default is 12 hours past the cookie's expiration time.
+	 * @param int    $expiration       The time when the logged-in cookie expires as a UNIX timestamp.
+	 *                                 Default is 14 days from now.
+	 * @param int    $user_id          User ID.
+	 */
+	public function set_samesite_logged_in_cookies( $logged_in_cookie, $expire, $expiration, $user_id ) {
+		$secure = is_ssl();
+
+		// Front-end cookie is secure when the auth cookie is secure and the site's home URL is forced HTTPS.
+		$secure_logged_in_cookie = $secure && 'https' === wp_parse_url( get_option( 'home' ), PHP_URL_SCHEME );
+
+		/** This filter is documented in core/src/wp-includes/pluggable.php */
+		$secure = apply_filters( 'secure_auth_cookie', $secure, $user_id );
+
+		/** This filter is documented in core/src/wp-includes/pluggable.php */
+		$secure_logged_in_cookie = apply_filters( 'secure_logged_in_cookie', $secure_logged_in_cookie, $user_id, $secure );
+
+		$samesite = $this->get_samesite_attr_for_auth_cookies( $secure_logged_in_cookie );
+
+		$this->set_cookie_args[] = array(
+			LOGGED_IN_COOKIE,
+			$logged_in_cookie,
+			array(
+				'expires'  => $expire,
+				'path'     => COOKIEPATH,
+				'domain'   => COOKIE_DOMAIN,
+				'secure'   => $secure_logged_in_cookie,
+				'httponly' => true,
+				'samesite' => $samesite,
+			),
+		);
+
+		if ( COOKIEPATH !== SITECOOKIEPATH ) {
+			$this->set_cookie_args[] = array(
+				LOGGED_IN_COOKIE,
+				$logged_in_cookie,
+				array(
+					'expires'  => $expire,
+					'path'     => SITECOOKIEPATH,
+					'domain'   => COOKIE_DOMAIN,
+					'secure'   => $secure_logged_in_cookie,
+					'httponly' => true,
+					'samesite' => $samesite,
+				),
+			);
+		}
 	}
 }
 

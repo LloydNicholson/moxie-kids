@@ -1,8 +1,6 @@
 <?php
 /**
  * PageController
- *
- * @package Woocommerce Admin
  */
 
 namespace Automattic\WooCommerce\Admin;
@@ -89,7 +87,7 @@ class PageController {
 		 *   @type boolean      js_page      If this is a JS-powered page.
 		 * }
 		 */
-		$options = apply_filters( 'wc_admin_connect_page_options', $options );
+		$options = apply_filters( 'woocommerce_navigation_connect_page_options', $options );
 
 		// @todo check for null ID, or collision.
 		$this->pages[ $options['id'] ] = $options;
@@ -131,7 +129,6 @@ class PageController {
 				}
 			}
 		}
-
 		$this->current_page = false;
 	}
 
@@ -147,7 +144,7 @@ class PageController {
 		// Bail if this isn't a page registered with this controller.
 		if ( false === $current_page ) {
 			// Filter documentation below.
-			return apply_filters( 'wc_admin_get_breadcrumbs', array( '' ), $current_page );
+			return apply_filters( 'woocommerce_navigation_get_breadcrumbs', array( '' ), $current_page );
 		}
 
 		if ( 1 === count( $current_page['title'] ) ) {
@@ -168,6 +165,11 @@ class PageController {
 			while ( $parent_id ) {
 				if ( isset( $this->pages[ $parent_id ] ) ) {
 					$parent = $this->pages[ $parent_id ];
+
+					if ( 0 === strpos( $parent['path'], self::PAGE_ROOT ) ) {
+						$parent['path'] = 'admin.php?page=' . $parent['path'];
+					}
+
 					array_unshift( $breadcrumbs, array( $parent['path'], reset( $parent['title'] ) ) );
 					$parent_id = isset( $parent['parent'] ) ? $parent['parent'] : false;
 				} else {
@@ -176,13 +178,17 @@ class PageController {
 			}
 		}
 
+		$woocommerce_breadcrumb = array( 'admin.php?page=' . self::PAGE_ROOT, __( 'WooCommerce', 'woocommerce-admin' ) );
+
+		array_unshift( $breadcrumbs, $woocommerce_breadcrumb );
+
 		/**
 		 * The navigation breadcrumbs for the current page.
 		 *
 		 * @param array         $breadcrumbs Navigation pieces (breadcrumbs).
 		 * @param array|boolean $current_page The connected page data or false if not identified.
 		 */
-		return apply_filters( 'wc_admin_get_breadcrumbs', $breadcrumbs, $current_page );
+		return apply_filters( 'woocommerce_navigation_get_breadcrumbs', $breadcrumbs, $current_page );
 	}
 
 	/**
@@ -224,7 +230,7 @@ class PageController {
 		$current_screen = get_current_screen();
 		if ( ! $current_screen ) {
 			// Filter documentation below.
-			return apply_filters( 'wc_admin_current_screen_id', false, $current_screen );
+			return apply_filters( 'woocommerce_navigation_current_screen_id', false, $current_screen );
 		}
 
 		$screen_pieces = array( $current_screen->id );
@@ -251,7 +257,7 @@ class PageController {
 
 		// Pages with default tab values.
 		$pages_with_tabs = apply_filters(
-			'wc_admin_pages_with_tabs',
+			'woocommerce_navigation_pages_with_tabs',
 			array(
 				'wc-reports'  => 'orders',
 				'wc-settings' => 'general',
@@ -265,7 +271,7 @@ class PageController {
 		$wc_email_ids = array_map( 'sanitize_title', array_keys( $wc_emails->get_emails() ) );
 
 		$tabs_with_sections = apply_filters(
-			'wc_admin_page_tab_sections',
+			'woocommerce_navigation_page_tab_sections',
 			array(
 				'products'          => array( '', 'inventory', 'downloadable' ),
 				'shipping'          => array( '', 'options', 'classes' ),
@@ -316,7 +322,7 @@ class PageController {
 		 * @param string|boolean $screen_id The screen id or false if not identified.
 		 * @param WP_Screen      $current_screen The current WP_Screen.
 		 */
-		return apply_filters( 'wc_admin_current_screen_id', implode( '-', $screen_pieces ), $current_screen );
+		return apply_filters( 'woocommerce_navigation_current_screen_id', implode( '-', $screen_pieces ), $current_screen );
 	}
 
 	/**
@@ -360,7 +366,7 @@ class PageController {
 		 * @param boolean       $is_connected_page True if the current page is connected.
 		 * @param array|boolean $current_page The connected page data or false if not identified.
 		 */
-		return apply_filters( 'woocommerce_page_is_connected_page', $is_connected_page, $current_page );
+		return apply_filters( 'woocommerce_navigation_is_connected_page', $is_connected_page, $current_page );
 	}
 
 	/**
@@ -385,7 +391,7 @@ class PageController {
 		 * @param boolean       $is_registered_page True if the current page was registered with this controller.
 		 * @param array|boolean $current_page The registered page data or false if not identified.
 		 */
-		return apply_filters( 'woocommerce_page_is_registered_page', $is_registered_page, $current_page );
+		return apply_filters( 'woocommerce_navigation_is_registered_page', $is_registered_page, $current_page );
 	}
 
 	/**
@@ -431,6 +437,17 @@ class PageController {
 				$options['icon'],
 				$options['position']
 			);
+
+			if ( method_exists( '\Automattic\WooCommerce\Navigation\Menu', 'add_category' ) ) {
+				\Automattic\WooCommerce\Navigation\Menu::add_category(
+					array(
+						'id'         => $options['id'],
+						'title'      => $options['title'],
+						'capability' => $options['capability'],
+						'url'        => $options['path'],
+					)
+				);
+			}
 		} else {
 			$parent_path = $this->get_path_from_id( $options['parent'] );
 			// @todo check for null path.
@@ -442,6 +459,18 @@ class PageController {
 				$options['path'],
 				array( __CLASS__, 'page_wrapper' )
 			);
+
+			if ( method_exists( '\Automattic\WooCommerce\Navigation\Menu', 'add_item' ) ) {
+				\Automattic\WooCommerce\Navigation\Menu::add_item(
+					array(
+						'id'         => $options['id'],
+						'parent'     => $options['parent'],
+						'title'      => $options['title'],
+						'capability' => $options['capability'],
+						'url'        => $options['path'],
+					)
+				);
+			}
 		}
 
 		$this->connect_page( $options );
@@ -451,10 +480,6 @@ class PageController {
 	 * Set up a div for the app to render into.
 	 */
 	public static function page_wrapper() {
-		?>
-		<div class="wrap">
-			<div id="root"></div>
-		</div>
-		<?php
+		Loader::page_wrapper();
 	}
 }

@@ -12,8 +12,6 @@
  *         );
  * $report = new \Automattic\WooCommerce\Admin\API\Reports\Customers\Stats\Query( $args );
  * $mydata = $report->get_data();
- *
- * @package  WooCommerce Admin/Classes
  */
 
 namespace Automattic\WooCommerce\Admin\API\Reports\Customers\Stats;
@@ -48,10 +46,10 @@ class Query extends ReportsQuery {
 	 * @return array
 	 */
 	public function get_data() {
-		$args = apply_filters( 'woocommerce_reports_customers_stats_query_args', $this->get_query_vars() );
+		$args = apply_filters( 'woocommerce_analytics_customers_stats_query_args', $this->get_query_vars() );
 
 		$data_store = \WC_Data_Store::load( 'report-customers-stats' );
 		$results    = $data_store->get_data( $args );
-		return apply_filters( 'woocommerce_reports_customers_stats_select_query', $results, $args );
+		return apply_filters( 'woocommerce_analytics_customers_stats_select_query', $results, $args );
 	}
 }

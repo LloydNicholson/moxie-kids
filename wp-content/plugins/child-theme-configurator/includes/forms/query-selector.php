@@ -89,7 +89,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
         <strong>
         <?php _e( 'Raw CSS', 'child-theme-configurator' ); ?>
         </strong>
-        <p class="howto"><?php _e( 'Use to enter shorthand CSS or new @media queries and selectors.', 'child-theme-configurator' );?></p><p class="howto"><?php _e( 'Values entered here are merged into existing child css or added to the child stylesheet if they do not exist in the parent.', 'child-theme-configurator' ); ?></p>
+        <p class="howto"><?php _e( 'Use to enter shorthand CSS or new @media queries and selectors.', 'child-theme-configurator' );?></p><p class="howto"><?php _e( 'Values entered here are merged into existing child styles or added to the child stylesheet if they do not exist in the parent.', 'child-theme-configurator' ); ?></p>
       </div>
       <div class="ctc-input-cell-wide">
         <textarea id="ctc_new_selectors" name="ctc_new_selectors" wrap="off"></textarea>

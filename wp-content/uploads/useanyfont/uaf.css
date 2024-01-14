@@ -1,0 +1,12 @@
+				@font-face {
+					font-family: 'geometr';
+					src: url('/wp-content/uploads/useanyfont/191121062339geometr.woff') format('woff');
+					  font-display: auto;
+				}
+
+				.geometr{font-family: 'geometr' !important;}
+
+						h1, h2, h3, h4, h5, h6, #menu-primary-menu li a, #menu-primary-menu li span, .menu-item{
+					font-family: 'geometr' !important;
+				}
+		

@@ -64,7 +64,7 @@ if (post_password_required()) {
 
         if (!empty($product_tabs)) : ?>
 
-            <div class="woocommerce-tabs wc-tabs-wrapper"">
+            <div class="woocommerce-tabs wc-tabs-wrapper">
                 <?php foreach ($product_tabs as $key => $product_tab) : ?>
                     <div class=" woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr($key); ?> panel entry-content wc-tab" style="float: left; width: 100%" id="tab-<?php echo esc_attr($key); ?>" role="tabpanel" aria-labelledby="tab-title-<?php echo esc_attr($key); ?>">
                 <?php

@@ -36,8 +36,18 @@ p {
   display: none;
 }
 
-.woocommerce-products-header {
+.woocommerce-products-header__title.page-title {
+  display: none !important;
+}
+
+/* Don't show short description on single product content page */
+.woocommerce-product-details__short-description {
   display: none;
+}
+
+/* Show full description on single product content page */
+#tab-description {
+  display: block !important;
 }
 
 .storefront-sorting {
@@ -67,6 +77,17 @@ p {
 
 .input-text {
   width: 300px !important;
+}
+
+.wp-block-heading {
+  text-align: center;
+}
+
+ul.products li.product,
+ul.products .wc-block-grid__product,
+.wc-block-grid__products li.product,
+.wc-block-grid__products .wc-block-grid__product {
+  width: auto;
 }
 
 .woocommerce-billing-fields__field-wrapper {

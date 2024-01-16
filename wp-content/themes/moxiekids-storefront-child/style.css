@@ -58,6 +58,7 @@ p {
   margin-bottom: 0;
 }
 
+/* Hide subscribe page description on smaller screen sizes */
 @media screen and (max-width: 782px) {
   html.gr__moxiekids_co_za {
     margin-top: 0 !important;

@@ -33,7 +33,7 @@
 
             </div>
             <div bp="3@md">
-                <h4>LET’S CHAT!</h4>
+                <h4>LET'S CHAT!</h4>
                 <ul style="list-style: none; margin-left: 0">
                     <li><a href="/contact">Contact Us</a></li>
                     <li>+27 83 444 6081</li>

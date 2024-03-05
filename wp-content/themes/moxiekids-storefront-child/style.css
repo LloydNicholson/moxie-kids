@@ -9,7 +9,7 @@ Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-rea
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-@import "css/moxie.css"; 
+@import "css/moxie.css";
 
 .site-footer {
   color: white;
@@ -55,6 +55,7 @@ textarea.grunion-field {
     margin-top: 10px
   }
 }
+
 /* END */
 
 /* Don't display related products on single product content page */
@@ -62,8 +63,13 @@ section.related.products {
   display: none !important;
 }
 
+
 .woocommerce-products-header__title.page-title {
   display: none !important;
+}
+
+header.woocommerce-products-header {
+  display: block !important;
 }
 
 /* Show full description on single product content page */
@@ -73,6 +79,15 @@ section.related.products {
 
 .storefront-sorting {
   display: none;
+}
+
+/* Ensure products on Subscriptions page are smaller on large screens */
+@media screen and (min-width: 782px) {
+  .wc-block-grid__product {
+    max-width: 250px;
+    width: 250px;
+    padding: 10px;
+  }
 }
 
 #masthead {
@@ -115,6 +130,11 @@ ul.products .wc-block-grid__product,
 .wc-block-grid__products li.product,
 .wc-block-grid__products .wc-block-grid__product {
   width: auto;
+}
+
+/* Hide products at bottom of page on Subscription page */
+.woocommerce-shop ul.products.columns-3 {
+  display: none;
 }
 
 .woocommerce-billing-fields__field-wrapper {
